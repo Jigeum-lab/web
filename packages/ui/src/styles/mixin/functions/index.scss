@@ -11,3 +11,8 @@
 @function line-height($key) {
   @return map-get($line-heights, $key);
 }
+
+@mixin typography($size, $height: normal) {
+  font-size: font-size($size);
+  line-height: line-height($height);
+}
