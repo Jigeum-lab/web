@@ -1,5 +1,8 @@
 'use client';
+import { Button } from '@repo/ui';
 import { signIn, signOut } from 'next-auth/react';
+
+import styles from './styles/index.module.scss';
 
 import { useMainCharacterViewModel } from '@/app/auth/signin/hooks';
 import { useClientSession } from '@/utils/session/useClientSession';
@@ -12,6 +15,7 @@ const ViewComponent = () => {
     <div>
       <h1>Sign In</h1>
       <button
+        className={styles.button}
         onClick={() =>
           signIn('email-password-credentials', {
             email: '123',
@@ -21,7 +25,9 @@ const ViewComponent = () => {
       >
         Sign In
       </button>
-      <button onClick={() => signOut()}>Logout</button>
+      <Button className={styles.button} onClick={() => signOut()}>
+        Logout
+      </Button>
       <div>{JSON.stringify(session?.user)}</div>
     </div>
   );

@@ -1,0 +1,7 @@
+@import '../variabless/index';
+
+$line-heights: (
+  "tight": $line-height-tight,
+  "normal": $line-height-normal,
+  "loose": $line-height-loose
+);

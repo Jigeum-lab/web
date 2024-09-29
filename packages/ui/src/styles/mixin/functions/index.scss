@@ -1,0 +1,13 @@
+@import '../tokens/index';
+
+@function color($key){
+  @return map-get($colors, $key);
+}
+
+@function font-size($key) {
+  @return map-get($font-sizes, $key);
+}
+
+@function line-height($key) {
+  @return map-get($line-heights, $key);
+}

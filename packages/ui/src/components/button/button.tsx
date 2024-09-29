@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import type React from 'react';
 
 import styles from './index.module.scss';
@@ -7,9 +8,9 @@ export interface ButtonProps
   children: React.ReactNode;
 }
 
-export const Button = ({ children, ...rest }: ButtonProps) => {
+export const Button = ({ children, className, ...rest }: ButtonProps) => {
   return (
-    <button {...rest} className={styles.button}>
+    <button className={clsx(styles.button, className)} {...rest}>
       {children}
     </button>
   );
