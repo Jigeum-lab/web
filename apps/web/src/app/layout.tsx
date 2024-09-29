@@ -1,3 +1,5 @@
+import '@repo/ui/style.css';
+
 import type { Metadata } from 'next';
 
 import ClientContext from '@/context/ClientContext';
