@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "@repo/ui": "*",
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "@chromatic-com/storybook": "^1.7.0",

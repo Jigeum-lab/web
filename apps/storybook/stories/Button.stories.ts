@@ -1,8 +1,7 @@
+import type { ButtonProps } from '@repo/ui';
+import { Button } from '@repo/ui';
 import type { Meta } from '@storybook/react';
 import { fn } from '@storybook/test';
-
-import type { ButtonProps } from './Button';
-import { Button } from './Button';
 
 const meta: Meta<ButtonProps> = {
   title: 'Example/Button',
@@ -11,9 +10,6 @@ const meta: Meta<ButtonProps> = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
   args: { onClick: fn() },
 };
 
@@ -22,26 +18,26 @@ export default meta;
 export const Primary = {
   args: {
     primary: true,
-    label: 'Button',
+    children: 'Button',
   },
 };
 
 export const Secondary = {
   args: {
-    label: 'Button',
+    children: 'Button',
   },
 };
 
 export const Large = {
   args: {
     size: 'large',
-    label: 'Button',
+    children: 'Button',
   },
 };
 
 export const Small = {
   args: {
     size: 'small',
-    label: 'Button',
+    children: 'Button',
   },
 };
