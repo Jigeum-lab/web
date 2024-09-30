@@ -1,0 +1,22 @@
+@import '../variabless/index';
+
+$letter-spacings: (
+  "display-1": $letter-display-1,
+  "display-2": $letter-display-2,
+  "title-1": $letter-title-1,
+  "title-2": $letter-title-2,
+  "title-3": $letter-title-3,
+  "heading-1": $letter-heading-1,
+  "heading-2": $letter-heading-2,
+  "headline-1": $letter-headline-1,
+  "headline-2": $letter-headline-2,
+  "body-1-normal": $letter-body-1-normal,
+  "body-1-reading": $letter-body-1-reading,
+  "body-2-normal": $letter-body-2-normal,
+  "body-2-reading": $letter-body-2-reading,
+  "label-1-normal": $letter-label-1-normal,
+  "label-1-reading": $letter-label-1-reading,
+  "label-2": $letter-label-2,
+  "caption-1": $letter-caption-1,
+  "caption-2": $letter-caption-2,
+);

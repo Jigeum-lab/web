@@ -1,9 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { resolve } from 'path';
+import { resolve } from 'path'; // eslint-disable-next-line import/default
 
 import react from '@vitejs/plugin-react';
 import preserveDirectives from 'rollup-preserve-directives';
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'; // eslint-disable-next-line import/default
 import dts from 'vite-plugin-dts';
 import svgr from 'vite-plugin-svgr';
 
@@ -52,7 +52,8 @@ export default defineConfig({
           return assetInfo.name;
         },
       },
-      // @ts-ignore
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       plugins: [preserveDirectives()],
     },
   },
@@ -63,6 +64,7 @@ export default defineConfig({
     },
     preprocessorOptions: {
       scss: {
+        // NOTE: 전역설정
         additionalData: '@import "./src/styles/index.scss";',
       },
     },

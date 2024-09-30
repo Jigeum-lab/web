@@ -12,7 +12,12 @@
   @return map-get($line-heights, $key);
 }
 
-@mixin typography($size, $height: normal) {
-  font-size: font-size($size);
-  line-height: line-height($height);
+@function letter-spacing($key) {
+  @return map-get($letter-spacings, $key);
+}
+
+@mixin typography($key: normal) {
+  font-size: font-size($key);
+  letter-spacing: letter-spacing($key);
+  line-height: line-height($key);
 }
