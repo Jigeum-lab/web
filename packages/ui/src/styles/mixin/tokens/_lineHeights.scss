@@ -1,7 +1,22 @@
 @import '../variabless/index';
 
 $line-heights: (
-  "tight": $line-height-tight,
-  "normal": $line-height-normal,
-  "loose": $line-height-loose
+  "display-1": $line-display-1,
+  "display-2": $line-display-2,
+  "title-1": $line-title-1,
+  "title-2": $line-title-2,
+  "title-3": $line-title-3,
+  "heading-1": $line-heading-1,
+  "heading-2": $line-heading-2,
+  "headline-1": $line-headline-1,
+  "headline-2": $line-headline-2,
+  "body-1-normal": $line-body-1-normal,
+  "body-1-reading": $line-body-1-reading,
+  "body-2-normal": $line-body-2-normal,
+  "body-2-reading": $line-body-2-reading,
+  "label-1-normal": $line-label-1-normal,
+  "label-1-reading": $line-label-1-reading,
+  "label-2": $line-label-2,
+  "caption-1": $line-caption-1,
+  "caption-2": $line-caption-2,
 );

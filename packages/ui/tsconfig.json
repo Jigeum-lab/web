@@ -10,8 +10,6 @@
   "include": [
     "src",
     "index.d.ts",
-    "server.d.ts",
-    "client.d.ts",
     "vite.config.mts",
     "../../jest.setup.ts",
     "__mocks__",

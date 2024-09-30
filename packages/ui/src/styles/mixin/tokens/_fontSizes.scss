@@ -1,7 +1,22 @@
 @import '../variabless/index';
 
 $font-sizes: (
-  "small": $font-size-small,
-  "medium": $font-size-medium,
-  "large": $font-size-large
+  "display-1": $font-display-1,
+  "display-2": $font-display-2,
+  "title-1": $font-title-1,
+  "title-2": $font-title-2,
+  "title-3": $font-title-3,
+  "heading-1": $font-heading-1,
+  "heading-2": $font-heading-2,
+  "headline-1": $font-headline-1,
+  "headline-2": $font-headline-2,
+  "body-1-normal": $font-body-1-normal,
+  "body-1-reading": $font-body-1-reading,
+  "body-2-normal": $font-body-2-normal,
+  "body-2-reading": $font-body-2-reading,
+  "label-1-normal": $font-label-1-normal,
+  "label-1-reading": $font-label-1-reading,
+  "label-2": $font-label-2,
+  "caption-1": $font-caption-1,
+  "caption-2": $font-caption-2,
 );

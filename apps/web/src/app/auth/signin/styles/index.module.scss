@@ -2,4 +2,6 @@
   &:hover {
     background-color: color('danger');
   }
+  @include typography('display1');
+
 }
