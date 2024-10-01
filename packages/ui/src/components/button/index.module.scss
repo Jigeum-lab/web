@@ -1,3 +1,18 @@
 .button {
-  color: color('primary/light');
+  padding: get-spacing('spacing/12') get-spacing('spacing/28');
+  border-radius: get-radius('radius/10');
+  background-color: get-color('primary/normal');
+  color: get-color('static/white');
+
+  &:hover {
+    background-color: get-color('primary/normal');
+  }
+
+  &:focus {
+    background-color: get-color('primary/normal');
+  }
+
+  &:active {
+    background-color: get-color('primary/normal');
+  }
 }

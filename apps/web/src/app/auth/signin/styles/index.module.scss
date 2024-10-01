@@ -1,5 +1,3 @@
 .button {
-  &:hover {
-    background-color: color('colors/red');
-  }
+  @include apply-aspect-ratio('landscape', '16/9');
 }
