@@ -1,3 +1,4 @@
+import '@/styles/global.scss';
 import '@repo/ui/style.css';
 import type { Metadata } from 'next';
 
