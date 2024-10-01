@@ -16,8 +16,56 @@
   @return map-get($letter-spacings, $key);
 }
 
+@function shadow($key) {
+  @return map-get($shadows, $key);
+}
+
+@function opacity($key) {
+  @return map-get($opacity, $key);
+}
+
+@function aspect-ratio($orientation, $ratio) {
+  // aspect-ratio: aspect-ratio('landscape', '16/9');
+  @if custom-map-has-key($ratios, $orientation) {
+    $orientation-map: custom-map-get($ratios, $orientation);
+    @if custom-map-has-key($orientation-map, $ratio) {
+      @return custom-map-get($orientation-map, $ratio);
+    }
+  }
+  @warn "Unknown aspect ratio: #{$orientation} #{$ratio}";
+  @return null;
+}
+
+@mixin apply-aspect-ratio($orientation, $ratio) {
+  // @include apply-aspect-ratio('landscape', '16/9');
+  // @include apply-aspect-ratio('portrait', '16/9');
+  $value: aspect-ratio($orientation, $ratio);
+  @if $value {
+    aspect-ratio: $value;
+  }
+}
+
+
 @mixin typography($key: normal) {
   font-size: font-size($key);
   letter-spacing: letter-spacing($key);
   line-height: line-height($key);
+}
+
+@mixin mobile {
+  @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-desktop}) {
+    @content;
+  }
 }

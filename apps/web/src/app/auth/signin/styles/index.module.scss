@@ -1,7 +1,5 @@
 .button {
   &:hover {
-    background-color: color('danger');
+    background-color: color('colors/red');
   }
-  @include typography('display1');
-
 }

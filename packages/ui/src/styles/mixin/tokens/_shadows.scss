@@ -1,0 +1,8 @@
+@import '../variabless/index';
+
+$shadows: (
+  'shadow/normal': $shadow-normal,
+  'shadow/emphasize': $shadow-emphasize,
+  'shadow/strong': $shadow-strong,
+  'shadow/heavy': $shadow-heavy,
+);
