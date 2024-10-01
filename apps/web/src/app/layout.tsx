@@ -1,7 +1,9 @@
 import '@/styles/global.scss';
 import '@repo/ui/style.css';
+import clsx from 'clsx';
 import type { Metadata } from 'next';
 
+import { notoSansKr, notoSerifFont, pretendardFont } from '@/app/fonts';
 import ClientContext from '@/context/ClientContext';
 import { getUserServerSession } from '@/utils/session/getUserServerSession';
 
@@ -13,7 +15,14 @@ export const metadata: Metadata = {
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   const { session } = await getUserServerSession();
   return (
-    <html lang="ko">
+    <html
+      lang="ko"
+      className={clsx(
+        pretendardFont.variable,
+        notoSerifFont.variable,
+        notoSansKr.variable
+      )}
+    >
       <body>
         <ClientContext session={session}>{children}</ClientContext>
       </body>
