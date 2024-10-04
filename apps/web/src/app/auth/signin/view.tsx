@@ -12,7 +12,7 @@ const ViewComponent = () => {
   const { session } = useClientSession();
 
   return (
-    <div>
+    <div className={'container'}>
       <h1>Sign In</h1>
       <button
         className={styles.button}

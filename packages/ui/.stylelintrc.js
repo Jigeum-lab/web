@@ -7,6 +7,8 @@ module.exports = {
     'stylelint-config-property-sort-order-smacss',
   ],
   plugins: ['stylelint-scss', 'stylelint-order'],
-  rules: {},
+  rules: {
+    'selector-class-pattern': null,
+  },
   ignoreFiles: ['packages/ui/dist/**/*'],
 };

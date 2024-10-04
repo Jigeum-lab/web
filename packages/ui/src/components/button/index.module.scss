@@ -1,18 +1,86 @@
-.button {
-  padding: get-spacing('spacing/12') get-spacing('spacing/28');
-  border-radius: get-radius('radius/10');
-  background-color: get-color('primary/normal');
+.filled {
+  background-color: get-color('interaction/blue/normal');
   color: get-color('static/white');
 
   &:hover {
-    background-color: get-color('primary/normal');
+    background-color: get-color('interaction/blue/hovered');
   }
 
   &:focus {
-    background-color: get-color('primary/normal');
+    background-color: get-color('interaction/blue/hovered');
   }
 
   &:active {
-    background-color: get-color('primary/normal');
+    background-color: get-color('interaction/blue/pressed');
   }
+
+  &:disabled {
+    background-color: get-color('interaction/disable');
+    color: get-color('labels/disable');
+    cursor: default;
+  }
+};
+
+.outlined {
+  border: 1px solid get-color('primary/normal');
+  background-color: get-color('static/white');
+  color: get-color('primary/normal');
+
+  &:hover {
+    background-color: get-color('interaction/white/hovered');
+  }
+
+  &:focus {
+    background-color: get-color('interaction/white/hovered');
+  }
+
+  &:active {
+    background-color: get-color('interaction/white/pressed');
+  }
+
+  &:disabled {
+    border-color: get-color('line/normal/normal');
+    background-color: get-color('interaction/disable');
+    color: get-color('labels/disable');
+    cursor: default;
+  }
+};
+
+.text {
+  border: 0;
+  background-color: get-color('static/white');
+  color: get-color('primary/strong');
+
+  &:hover {
+    background-color: get-color('interaction/white/hovered');
+  }
+
+  &:focus {
+    background-color: get-color('interaction/white/hovered');
+  }
+
+  &:active {
+    background-color: get-color('interaction/white/pressed');
+  }
+
+  &:disabled {
+    background-color: get-color('interaction/disable');
+    color: get-color('labels/disable');
+    cursor: default;
+  }
+};
+
+.sizeLarge {
+  padding: get-spacing('spacing/12') get-spacing('spacing/28');
+  border-radius: get-radius('radius/10');
+}
+
+.sizeMedium {
+  padding: 9px get-spacing('spacing/20');
+  border-radius: get-radius('radius/6');
+}
+
+.sizeSmall {
+  padding: 7px 14px;
+  border-radius: get-radius('radius/6');
 }
