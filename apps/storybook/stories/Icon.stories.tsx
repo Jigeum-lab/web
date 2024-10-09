@@ -17,7 +17,7 @@ const meta: Meta<IconProps<'svg'>> = {
     name: {
       control: {
         type: 'radio',
-        options: ['IcAlert'],
+        options: ['IcGithub'],
       },
       description: 'Icon타입에 따른 컴포넌트 이름을 정합니다.',
       table: {
@@ -32,5 +32,5 @@ const meta: Meta<IconProps<'svg'>> = {
 export default meta;
 
 export const Default = (props: IconProps<'svg'>) => {
-  return <Icon {...props} width={32} height={32} name={'IcAlert'} />;
+  return <Icon {...props} width={32} height={32} name={'IcGithub'} />;
 };

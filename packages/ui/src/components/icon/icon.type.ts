@@ -1,3 +1,8 @@
-export type IconTypes = IconCompanySrc;
+export type IconTypes = IconSrc;
 
-export type IconCompanySrc = 'IcAlert';
+export type IconSrc =
+  | 'IcGithub'
+  | 'IcWeb'
+  | 'IcAndroid'
+  | 'IcApps'
+  | 'IcArrowDown';
