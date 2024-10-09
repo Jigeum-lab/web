@@ -18,6 +18,7 @@ export interface TypographyOwnProps<T extends ElementType> {
   level: TypographyTextLevel;
   textAlign?: TypographyTextAlign;
   color?: TypographyColor;
+  disabled?: boolean;
   strong?: boolean;
   /** true일 경우 Text가 italic 됩니다. */
   italic?: boolean;
@@ -34,6 +35,7 @@ export const Typography = <T extends ElementType = 'span'>({
   children,
   level,
   textAlign,
+  disabled = false,
   strong = false,
   italic = false,
   underline = false,
@@ -41,16 +43,18 @@ export const Typography = <T extends ElementType = 'span'>({
   ...rest
 }: TypographyProps<T>) => {
   const Component = as || 'span';
+  console.log(styles);
 
   return (
     <Component
+      disabled={disabled}
       className={clsx(
         styles[level],
         textAlign && styles[`textAlign${textAlign}`],
         strong && styles.strong,
         italic && styles.italic,
         underline && styles.underline,
-        color && styles[`text${color}`]
+        disabled ? styles['textLabelsDisable'] : color && styles[`text${color}`]
       )}
       {...rest}
     >
