@@ -5,4 +5,5 @@ export type IconSrc =
   | 'IcWeb'
   | 'IcAndroid'
   | 'IcApps'
-  | 'IcArrowDown';
+  | 'IcArrowDown'
+  | 'IcArrowLeft';
