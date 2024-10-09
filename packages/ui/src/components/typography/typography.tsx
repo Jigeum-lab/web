@@ -15,6 +15,7 @@ export interface TypographyOwnProps<T extends ElementType> {
   level: TypographyTextLevel;
   textAlign?: TypographyTextAlign;
   color?: TypographyColor;
+  strong?: boolean;
   children: React.ReactNode;
 }
 
@@ -26,6 +27,7 @@ export const Typography = <T extends ElementType = 'span'>({
   children,
   level,
   textAlign,
+  strong = false,
   color,
   ...rest
 }: TypographyProps<T>) => {

@@ -85,7 +85,9 @@ export const Button = ({
     >
       <div className={styles.inner}>
         {leftIcon && <div className={styles.icon}>{leftIcon}</div>}
-        <Typography level={getTypographyLevel(size)}>{children}</Typography>
+        <Typography level={getTypographyLevel(size)} strong={true}>
+          {children}
+        </Typography>
         {rightIcon && <div className={styles.icon}>{rightIcon}</div>}
       </div>
     </button>
