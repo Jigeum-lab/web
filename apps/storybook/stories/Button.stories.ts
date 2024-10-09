@@ -11,6 +11,7 @@ const meta: Meta<ButtonProps> = {
   },
   tags: ['autodocs'],
   args: {
+    fullWidth: false,
     disabled: false,
     onClick: fn(),
   },
@@ -34,6 +35,14 @@ const meta: Meta<ButtonProps> = {
         },
       },
       control: { type: 'inline-radio' },
+    },
+    leftIcon: {
+      description: 'Button의 왼쪽부분에 icon 등을 삽입합니다.',
+      control: { type: 'text' },
+    },
+    rightIcon: {
+      description: 'Button의 오른쪽부분에 icon 등을 삽입합니다.',
+      control: { type: 'text' },
     },
   },
 };

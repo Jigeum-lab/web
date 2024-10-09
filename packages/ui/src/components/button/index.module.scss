@@ -70,6 +70,10 @@
   }
 };
 
+.fullWidth {
+  width: 100%;
+}
+
 .sizeLarge {
   padding: get-spacing('spacing/12') get-spacing('spacing/28');
   border-radius: get-radius('radius/10');
@@ -83,4 +87,16 @@
 .sizeSmall {
   padding: 7px 14px;
   border-radius: get-radius('radius/6');
+}
+
+.inner {
+  display: flex;
+  gap: get-spacing('spacing/8');
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
 }
