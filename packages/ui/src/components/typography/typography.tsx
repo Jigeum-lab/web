@@ -43,7 +43,6 @@ export const Typography = <T extends ElementType = 'span'>({
   ...rest
 }: TypographyProps<T>) => {
   const Component = as || 'span';
-  console.log(styles);
 
   return (
     <Component
