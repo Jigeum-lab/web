@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import type React from 'react';
 
-import type { ButtonVariant } from './button.type';
 import styles from './index.module.scss';
 
-import { Typography } from '@/components';
+import { Typography, type TypographyTextLevel } from '@/components';
+import type { ButtonVariant } from '@/components/button';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -13,6 +13,10 @@ export interface ButtonProps
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   variant?: ButtonVariant;
+  /** true 인 경우 좌우 공간을 모두 차지합니다. */
+  fullWidth?: boolean;
+  /** Button 요소의 type을 지정합니다. */
+  type?: 'submit' | 'button' | 'reset';
 }
 
 export const Button = ({
@@ -22,6 +26,8 @@ export const Button = ({
   leftIcon,
   rightIcon,
   variant,
+  fullWidth = false,
+  type = 'button',
   ...rest
 }: ButtonProps) => {
   const getVariant = (_variant: ButtonProps['variant']) => {
@@ -50,17 +56,38 @@ export const Button = ({
     }
   };
 
+  const getTypographyLevel = (
+    _size: ButtonProps['size']
+  ): TypographyTextLevel => {
+    switch (_size) {
+      case 'large':
+        return 'heading-1';
+      case 'medium':
+        return 'body-1-normal';
+      case 'small':
+        return 'label-1-normal';
+      default:
+        return 'heading-1';
+    }
+  };
+
   return (
     <button
+      type={type}
       className={clsx(
         styles.button,
         getVariant(variant),
         getSize(size),
+        fullWidth && styles.fullWidth,
         className
       )}
       {...rest}
     >
-      <Typography>{children}</Typography>
+      <div className={styles.inner}>
+        {leftIcon && <div className={styles.icon}>{leftIcon}</div>}
+        <Typography level={getTypographyLevel(size)}>{children}</Typography>
+        {rightIcon && <div className={styles.icon}>{rightIcon}</div>}
+      </div>
     </button>
   );
 };
