@@ -3,7 +3,11 @@ import type React from 'react';
 
 import styles from './index.module.scss';
 
-import { Typography, type TypographyTextLevel } from '@/components';
+import {
+  Typography,
+  type TypographyColor,
+  type TypographyTextLevel,
+} from '@/components';
 import type { ButtonVariant } from '@/components/button';
 
 export interface ButtonProps
@@ -13,6 +17,7 @@ export interface ButtonProps
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   variant?: ButtonVariant;
+  color?: TypographyColor;
   /** true 인 경우 좌우 공간을 모두 차지합니다. */
   fullWidth?: boolean;
   /** Button 요소의 type을 지정합니다. */
@@ -27,6 +32,7 @@ export const Button = ({
   rightIcon,
   variant,
   fullWidth = false,
+  color,
   type = 'button',
   ...rest
 }: ButtonProps) => {
@@ -61,13 +67,13 @@ export const Button = ({
   ): TypographyTextLevel => {
     switch (_size) {
       case 'large':
-        return 'heading-1';
+        return 'heading1';
       case 'medium':
-        return 'body-1-normal';
+        return 'body1Normal';
       case 'small':
-        return 'label-1-normal';
+        return 'label1Normal';
       default:
-        return 'heading-1';
+        return 'heading1';
     }
   };
 
@@ -85,7 +91,11 @@ export const Button = ({
     >
       <div className={styles.inner}>
         {leftIcon && <div className={styles.icon}>{leftIcon}</div>}
-        <Typography level={getTypographyLevel(size)} strong={true}>
+        <Typography
+          level={getTypographyLevel(size)}
+          strong={true}
+          color={color}
+        >
           {children}
         </Typography>
         {rightIcon && <div className={styles.icon}>{rightIcon}</div>}

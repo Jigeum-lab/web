@@ -1,30 +1,30 @@
 .filled {
-  background-color: get-color('interaction/blue/normal');
-  color: get-color('static/white');
+  background-color: get-color('interaction_blue_normal');
+  color: get-color('static_white');
 
   &:hover {
-    background-color: get-color('interaction/blue/hovered');
+    background-color: get-color('interaction_blue_hovered');
   }
 
   &:focus {
-    background-color: get-color('interaction/blue/hovered');
+    background-color: get-color('interaction_blue_hovered');
   }
 
   &:active {
-    background-color: get-color('interaction/blue/pressed');
+    background-color: get-color('interaction_blue_pressed');
   }
 
   &:disabled {
-    background-color: get-color('interaction/disable');
-    color: get-color('labels/disable');
+    background-color: get-color('interaction_disable');
+    color: get-color('labels_disable');
     cursor: default;
   }
 };
 
 .outlined {
-  border: 1px solid get-color('primary/normal');
-  background-color: get-color('static/white');
-  color: get-color('primary/normal');
+  border: 1px solid get-color('primary_normal');
+  background-color: get-color('static_white');
+  color: get-color('primary_normal');
 
   &:hover {
     background-color: get-color('interaction/white/hovered');
@@ -48,24 +48,24 @@
 
 .text {
   border: 0;
-  background-color: get-color('static/white');
-  color: get-color('primary/strong');
+  background-color: get-color('static_white');
+  color: get-color('primary_strong');
 
   &:hover {
-    background-color: get-color('interaction/white/hovered');
+    background-color: get-color('interaction_white/hovered');
   }
 
   &:focus {
-    background-color: get-color('interaction/white/hovered');
+    background-color: get-color('interaction_white_hovered');
   }
 
   &:active {
-    background-color: get-color('interaction/white/pressed');
+    background-color: get-color('interaction_white_pressed');
   }
 
   &:disabled {
-    background-color: get-color('interaction/disable');
-    color: get-color('labels/disable');
+    background-color: get-color('interaction_disable');
+    color: get-color('labels_disable');
     cursor: default;
   }
 };
