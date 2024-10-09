@@ -1,0 +1,40 @@
+$alignments: left, right, center, justify;
+
+@each $alignment in $alignments {
+  .textAlign#{$alignment} {
+    text-align: $alignment;
+  }
+}
+
+.strong {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+@each $class, $value in $font-sizes {
+  .#{$class} {
+    @include typography($class);
+  }
+}
+
+@each $color, $value in $colors {
+  .text-#{$color} {
+    color: get-color($color);
+  }
+
+  .bg-#{$color} {
+    background-color: get-color($color);
+  }
+
+  .border-#{$color} {
+    border-color: get-color($color);
+  }
+}
+
