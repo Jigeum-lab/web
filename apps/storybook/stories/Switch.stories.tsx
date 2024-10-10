@@ -29,9 +29,7 @@ export const Default = (props: SwitchProps) => {
       checked={isChecked}
       onChange={setIsChecked}
       size="medium"
-      color="#3b82f6"
       name="example-switch"
-      value="on"
       aria-label="Toggle switch"
       required={true}
     />
@@ -47,9 +45,7 @@ export const Small = (props: SwitchProps) => {
       checked={isChecked}
       onChange={setIsChecked}
       size="small"
-      color="#3b82f6"
       name="example-switch"
-      value="on"
       aria-label="Toggle switch"
       required={true}
     />
@@ -65,9 +61,7 @@ export const XSmall = (props: SwitchProps) => {
       checked={isChecked}
       onChange={setIsChecked}
       size="xsmall"
-      color="#3b82f6"
       name="example-switch"
-      value="on"
       aria-label="Toggle switch"
       required={true}
     />
