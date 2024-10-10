@@ -1,8 +1,8 @@
 .switch {
   $sizes: (
-          small: (width: 32px, height: 16px, thumb: 12px),
-          medium: (width: 44px, height: 24px, thumb: 20px),
-          large: (width: 56px, height: 28px, thumb: 24px)
+    xsmall: (width: 26px, height: 16px, thumb: 12px, padding: 2px),
+    small: (width: 39px, height: 24px, thumb: 18px, padding: 3px),
+    medium: (width: 52px, height: 32px, thumb: 24px, padding: 4px)
   );
 
   display: inline-block;
@@ -20,21 +20,24 @@
     position: absolute;
     inset: 0;
     transition: 0.4s;
-    border-radius: 34px;
-    background-color: rgba(#000, 0.25);
+    border-radius: 100px;
+    background-color: get-color('grays_gray-4');
+
+    &__checked {
+      background-color: get-color('primary_normal');
+    }
   }
 
   &__thumb {
     content: "";
     position: absolute;
-    bottom: 2px;
-    left: 2px;
-    width: 20px;
-    height: 20px;
+    bottom: 4px;
+    left: 4px;
+    width: 24px;
+    height: 24px;
     transition: 0.4s;
     border-radius: 50%;
     background-color: white;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
   }
 
   &__input:checked + &__toggle {
@@ -45,8 +48,8 @@
     transform: translateX(20px);
   }
 
-  &__input:focus + &__toggle {
-    box-shadow: 0 0 1px #2196F3;
+  &__input:disabled + &__toggle {
+    opacity: 0.43;
   }
 
   &--disabled {
@@ -56,16 +59,18 @@
 
   @each $size, $values in $sizes {
     &--#{$size} {
-      width: map-get($values, width);
-      height: map-get($values, height);
+      width: custom-map-get($values, width);
+      height: custom-map-get($values, height);
 
       .switch__thumb {
-        width: map-get($values, thumb);
-        height: map-get($values, thumb);
+        bottom: custom-map-get($values, padding);
+        left: custom-map-get($values, padding);
+        width: custom-map-get($values, thumb);
+        height: custom-map-get($values, thumb);
       }
 
       .switch__input:checked ~ .switch__thumb {
-        transform: translateX(#{map-get($values, width) - map-get($values, thumb) - 4px});
+        transform: translateX(#{custom-map-get($values, width) - custom-map-get($values, thumb) - custom-map-get($values, padding) - custom-map-get($values, padding) });
       }
     }
   }

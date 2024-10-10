@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import type { InputHTMLAttributes } from 'react';
-import type React from 'react';
 
 import styles from './index.module.scss';
 
@@ -14,7 +13,7 @@ type CheckboxInputProps = Omit<
 export interface SwitchProps extends CheckboxInputProps {
   checked: boolean;
   onChange: (checked: boolean) => void;
-  size?: 'small' | 'medium' | 'large';
+  size?: 'xsmall' | 'small' | 'medium';
   disabled?: boolean;
   color?: string;
   name: string;
@@ -24,7 +23,7 @@ export interface SwitchProps extends CheckboxInputProps {
 export const Switch: React.FC<SwitchProps> = ({
   checked,
   onChange,
-  size = 'medium',
+  size = 'small',
   disabled = false,
   color = '#3b82f6',
   name,
@@ -36,13 +35,12 @@ export const Switch: React.FC<SwitchProps> = ({
     // @ts-expect-error
     onChange(event.target.checked);
   };
-  const capitalizedSize = capitalizeFirstLetter(size);
 
   return (
     <label
       className={clsx(
         styles.switch,
-        styles[`switch${capitalizedSize}`],
+        styles[`switch${capitalizeFirstLetter(size)}`],
         disabled && styles.switchDisabled
       )}
     >
@@ -57,8 +55,10 @@ export const Switch: React.FC<SwitchProps> = ({
         {...rest}
       />
       <span
-        className={clsx(styles.switchToggle)}
-        style={{ backgroundColor: checked ? color : undefined }}
+        className={clsx(
+          styles.switchToggle,
+          checked && styles.switchToggleChecked
+        )}
       />
       <span className={styles.switchThumb} />
     </label>
