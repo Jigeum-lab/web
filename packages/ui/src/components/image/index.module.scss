@@ -1,0 +1,47 @@
+.image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+
+  &--hidden {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &--loading,
+  &--error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    min-height: 100px;
+    background-color: #f0f0f0;
+    color: #666;
+    font-size: 14px;
+  }
+
+  &--loading {
+    animation: pulse 1.5s infinite;
+  }
+
+  &--error {
+    background-color: #fee;
+    color: #f00;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.6;
+  }
+}
