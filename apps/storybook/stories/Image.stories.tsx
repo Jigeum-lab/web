@@ -35,6 +35,7 @@ export const Default = (props: ImageProps) => {
       errorPlaceholder={<div>Failed to load image</div>}
       width={300}
       height={200}
+      aspectRatio={'16/9'}
       loading="lazy"
     />
   );

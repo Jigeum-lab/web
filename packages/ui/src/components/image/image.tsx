@@ -7,6 +7,7 @@ import styles from './index.module.scss';
 export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   src: string;
   alt: string;
+  aspectRatio?: '3/2' | '4/3' | '16/9' | 'auto';
   fallbackSrc?: string;
   loadingPlaceholder?: React.ReactNode;
   errorPlaceholder?: React.ReactNode;
@@ -15,6 +16,7 @@ export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 export const Image: React.FC<ImageProps> = ({
   src,
   alt,
+  aspectRatio,
   fallbackSrc,
   loadingPlaceholder,
   errorPlaceholder,
@@ -81,6 +83,11 @@ export const Image: React.FC<ImageProps> = ({
           error && styles.imageError,
           className
         )}
+        style={{
+          aspectRatio: aspectRatio,
+          objectFit: 'scale-down',
+          ...restProps.style,
+        }}
       />
     </>
   );
