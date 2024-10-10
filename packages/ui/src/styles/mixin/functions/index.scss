@@ -32,6 +32,10 @@
   @return map-get($spacings, $key);
 }
 
+@function get-color-with-opacity($key, $opacity: 1) {
+  @return rgba(map-get($colors, $key), $opacity);
+}
+
 @function get-aspect-ratio($orientation, $ratio) {
   // aspect-ratio: aspect-ratio('landscape', '16/9');
   @if custom-map-has-key($ratios, $orientation) {
