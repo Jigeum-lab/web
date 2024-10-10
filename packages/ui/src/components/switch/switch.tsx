@@ -1,9 +1,10 @@
 import clsx from 'clsx';
 import type { InputHTMLAttributes } from 'react';
+import type React from 'react';
 
 import styles from './index.module.scss';
 
-import { capitalizeFirstLetter } from '@/uitls/capitalizeFirstLetter';
+import { capitalizeFirstLetter } from '@/uitls';
 
 type CheckboxInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
