@@ -59,10 +59,12 @@
     "vite-plugin-svgr": "^4.2.0"
   },
   "dependencies": {
+    "@toss/use-overlay": "^1.4.0",
     "clsx": "^2.1.1",
     "react": "^18.2.0"
   },
   "peerDependencies": {
+    "@toss/use-overlay": "^1.4.0",
     "sass": "^1.79.4"
   }
 }
