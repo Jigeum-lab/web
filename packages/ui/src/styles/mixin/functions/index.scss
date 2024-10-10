@@ -33,7 +33,7 @@
 }
 
 @function get-color-with-opacity($key, $opacity: 1) {
-  @return rgba(map-get($colors, $key), $opacity); // $color는 16진수 값이어야 함
+  @return rgba(map-get($colors, $key), $opacity);
 }
 
 @function get-aspect-ratio($orientation, $ratio) {
