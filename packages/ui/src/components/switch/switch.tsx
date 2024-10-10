@@ -15,9 +15,7 @@ export interface SwitchProps extends CheckboxInputProps {
   onChange: (checked: boolean) => void;
   size?: 'xsmall' | 'small' | 'medium';
   disabled?: boolean;
-  color?: string;
   name: string;
-  value: string;
 }
 
 export const Switch: React.FC<SwitchProps> = ({
@@ -25,9 +23,8 @@ export const Switch: React.FC<SwitchProps> = ({
   onChange,
   size = 'small',
   disabled = false,
-  color = '#3b82f6',
   name,
-  value,
+
   ...rest
 }) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,7 +48,6 @@ export const Switch: React.FC<SwitchProps> = ({
         onChange={handleChange}
         disabled={disabled}
         name={name}
-        value={value}
         {...rest}
       />
       <span
