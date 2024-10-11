@@ -24,7 +24,10 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
       )}
     >
       <body>
-        <ClientContext session={session}>{children}</ClientContext>
+        <ClientContext session={session}>
+          {children}
+          <div id="modal-root" />
+        </ClientContext>
       </body>
     </html>
   );
