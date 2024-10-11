@@ -1,0 +1,88 @@
+.switch {
+  $sizes: (
+    xsmall: (width: 26px, height: 16px, thumb: 12px, padding: 2px),
+    small: (width: 39px, height: 24px, thumb: 18px, padding: 3px),
+    medium: (width: 52px, height: 32px, thumb: 24px, padding: 4px)
+  );
+
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+
+  &__input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
+  &__toggle {
+    position: absolute;
+    inset: 0;
+    animation: toggle-animation 250ms cubic-bezier(0.25, 0.1, 0, 1.25);
+    border-radius: 100px;
+    background-color: get-color('grays_gray-4');
+
+    // 애니메이션 정의
+    @keyframes toggle-animation {
+      0% {
+        background-color: get-color('grays_gray-4');
+      }
+
+      100% {
+        background-color: get-color('primary_normal');
+      }
+    }
+
+    &__checked {
+      background-color: get-color('primary_normal');
+    }
+  }
+
+  &__thumb {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    width: 24px;
+    height: 24px;
+    transition: 0.4s;
+    border-radius: 50%;
+    background-color: white;
+  }
+
+  &__input:checked + &__toggle {
+    opacity: 1;
+  }
+
+  &__input:checked ~ &__thumb {
+    transform: translateX(20px);
+  }
+
+  &__input:disabled + &__toggle {
+    opacity: 0.43;
+  }
+
+  &--disabled {
+    opacity: 0.43;
+    cursor: default;
+  }
+
+  @each $size, $values in $sizes {
+    &--#{$size} {
+      width: custom-map-get($values, width);
+      height: custom-map-get($values, height);
+
+      .switch__thumb {
+        bottom: custom-map-get($values, padding);
+        left: custom-map-get($values, padding);
+        width: custom-map-get($values, thumb);
+        height: custom-map-get($values, thumb);
+      }
+
+      .switch__input:checked ~ .switch__thumb {
+        transform: translateX(#{custom-map-get($values, width) - custom-map-get($values, thumb) - custom-map-get($values, padding) - custom-map-get($values, padding) });
+      }
+    }
+  }
+}
