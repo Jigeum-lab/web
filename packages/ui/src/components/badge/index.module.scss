@@ -1,0 +1,26 @@
+.filled {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: get-radius('radius/4');
+  background-color: get-color-with-opacity('colors_cyan', 0.08);
+  color: get-color('colors_cyan');
+  gap: 6px;
+};
+
+.sizeMedium {
+  padding: 5px 6px;
+}
+
+.sizeSmall {
+  padding: 4px 5px;
+}
+
+.sizeXSmall {
+  padding: 3px 4px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+}
