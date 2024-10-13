@@ -1,5 +1,7 @@
+import HeaderView from '@/components/basic/Header/HeaderView';
+
 const Header = () => {
-  return <div>Header</div>;
+  return <HeaderView />;
 };
 
 export default Header;

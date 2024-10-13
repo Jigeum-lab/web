@@ -119,6 +119,7 @@ export type IconSrc =
   | 'IcCameraFill'
   | 'IcMinus'
   | 'IcCaretUp'
+  | 'IcLogo'
   | 'IcLogoType1'
   | 'IcChevronDoubleLeftThick'
   | 'IcSearchThick'
