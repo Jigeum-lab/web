@@ -1,6 +1,7 @@
 'use client';
 
 import { Button, Icon } from '@repo/ui';
+import Link from 'next/link';
 
 import { MenuItem } from './_components/MenuItem';
 import { menuList } from './data';
@@ -10,7 +11,10 @@ const HeaderView = () => {
   return (
     <header className={styles.header}>
       <div className={styles.header__menu}>
-        <Icon name={'IcLogo'} className={styles.icon__logo} />
+        <Link href={'/'} title={'Phase On'}>
+          <Icon name={'IcLogo'} className={styles.icon__logo} />
+          <h1 className={'sr-only'}>Phase On</h1>
+        </Link>
         {menuList.map(({ icon, name }) => (
           <MenuItem key={name} name={name} icon={icon} />
         ))}
