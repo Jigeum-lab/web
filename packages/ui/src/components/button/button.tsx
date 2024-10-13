@@ -9,11 +9,12 @@ import {
   type TypographyTextLevel,
 } from '@/components';
 import type { ButtonVariant } from '@/components/button';
+import { capitalizeFirstLetter } from '@/uitls';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  size?: 'large' | 'medium' | 'small';
+  size?: 'large' | 'medium' | 'small' | 'xsmall';
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   variant?: ButtonVariant;
@@ -27,7 +28,7 @@ export interface ButtonProps
 export const Button = ({
   children,
   className,
-  size,
+  size = 'small',
   leftIcon,
   rightIcon,
   variant,
@@ -57,6 +58,8 @@ export const Button = ({
         return styles.sizeMedium;
       case 'small':
         return styles.sizeSmall;
+      case 'xsmall':
+        return styles.sizeXSmall;
       default:
         return styles.sizeLarge;
     }
@@ -72,6 +75,8 @@ export const Button = ({
         return 'body1Normal';
       case 'small':
         return 'label1Normal';
+      case 'xsmall':
+        return 'caption2';
       default:
         return 'heading1';
     }
@@ -89,7 +94,12 @@ export const Button = ({
       )}
       {...rest}
     >
-      <div className={styles.inner}>
+      <div
+        className={clsx(
+          styles.inner,
+          styles[`inner${capitalizeFirstLetter(size as string)}`]
+        )}
+      >
         {leftIcon && <div className={styles.icon}>{leftIcon}</div>}
         <Typography
           level={getTypographyLevel(size)}
