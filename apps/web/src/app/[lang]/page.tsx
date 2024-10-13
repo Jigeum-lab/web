@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 const API_HOST = process.env.NEXT_PUBLIC_API_HOST || 'http://localhost:3001';
 
 const Web = () => {
-  const t = useTranslations('IndexPage');
+  const t = useTranslations('home');
   const [name, setName] = useState<string>('');
   const [response, setResponse] = useState<{ message: string } | null>(null);
   const [error, setError] = useState<string | undefined>();
@@ -41,7 +41,7 @@ const Web = () => {
   return (
     <div>
       <h1>Web</h1>
-      <h1>{t('title')}</h1>
+      <h1>{t('IndexPage.title')}</h1>
       <form onSubmit={onSubmit}>
         <label htmlFor="name">Name </label>
         <input
