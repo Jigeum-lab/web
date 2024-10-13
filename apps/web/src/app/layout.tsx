@@ -3,6 +3,8 @@ import '@repo/ui/style.css';
 import clsx from 'clsx';
 import type { Metadata } from 'next';
 
+import { Bottom } from '@/components/basic/Bottom';
+import { Header } from '@/components/basic/Header';
 import ClientContext from '@/context/ClientContext';
 import { notoSansKr, notoSerifFont, pretendardFont } from '@/styles/fonts';
 import { getUserServerSession } from '@/utils/session/getUserServerSession';
@@ -25,8 +27,12 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
     >
       <body>
         <ClientContext session={session}>
-          {children}
-          <div id="modal-root" />
+          <div className={'container content-padding'}>
+            <Header />
+            {children}
+            <Bottom />
+            <div id="modal-root" />
+          </div>
         </ClientContext>
       </body>
     </html>
