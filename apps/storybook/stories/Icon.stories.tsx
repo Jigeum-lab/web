@@ -136,8 +136,9 @@ const meta: Meta<IconProps<'svg'>> = {
           'IcLockFill',
           'IcLockOpen',
           'IcLockOpenFill',
-          'IcLogoType1',
-          'IcLogoType2',
+          'IcLogo',
+          'IcLogo1',
+          'IcLogo2',
           'IcLogoApple',
           'IcLogoFacebook',
           'IcLogoGooglePlay',
@@ -585,6 +586,9 @@ export const LockOpen = (props: IconProps<'svg'>) => (
 );
 export const LockOpenFill = (props: IconProps<'svg'>) => (
   <Icon {...props} width={32} height={32} name="IcLockOpenFill" />
+);
+export const Logo = (props: IconProps<'svg'>) => (
+  <Icon {...props} width={120} height={120} name="IcLogo" />
 );
 export const LogoType1 = (props: IconProps<'svg'>) => (
   <Icon {...props} width={120} height={120} name="IcLogoType1" />
