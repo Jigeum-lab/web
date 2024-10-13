@@ -1,4 +1,4 @@
-import ModalView from '@/app/modal/view';
+import ModalView from '@/app/[lang]/modal/view';
 
 const ModalPage = () => {
   return <ModalView />;
