@@ -34,6 +34,9 @@ const RootLayout = async ({
         notoSansKr.variable
       )}
     >
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body>
         <NextIntlClientProvider messages={messages}>
           <ClientContext session={session}>
