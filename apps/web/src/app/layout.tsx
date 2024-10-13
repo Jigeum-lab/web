@@ -3,8 +3,8 @@ import '@repo/ui/style.css';
 import clsx from 'clsx';
 import type { Metadata } from 'next';
 
-import { notoSansKr, notoSerifFont, pretendardFont } from '@/app/fonts';
 import ClientContext from '@/context/ClientContext';
+import { notoSansKr, notoSerifFont, pretendardFont } from '@/styles/fonts';
 import { getUserServerSession } from '@/utils/session/getUserServerSession';
 
 export const metadata: Metadata = {
