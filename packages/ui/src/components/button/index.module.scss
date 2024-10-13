@@ -27,21 +27,21 @@
   color: get-color('primary_normal');
 
   &:hover {
-    background-color: get-color('interaction/white/hovered');
+    background-color: get-color('interaction_white_hovered');
   }
 
   &:focus {
-    background-color: get-color('interaction/white/hovered');
+    background-color: get-color('interaction_white_hovered');
   }
 
   &:active {
-    background-color: get-color('interaction/white/pressed');
+    background-color: get-color('interaction_white_pressed');
   }
 
   &:disabled {
-    border-color: get-color('line/normal/normal');
-    background-color: get-color('interaction/disable');
-    color: get-color('labels/disable');
+    border-color: get-color('line_normal_normal');
+    background-color: get-color('interaction_disable');
+    color: get-color('labels_disable');
     cursor: default;
   }
 };
@@ -52,7 +52,7 @@
   color: get-color('primary_strong');
 
   &:hover {
-    background-color: get-color('interaction_white/hovered');
+    background-color: get-color('interaction_white_hovered');
   }
 
   &:focus {
@@ -89,11 +89,28 @@
   border-radius: get-radius('radius/6');
 }
 
+.sizeXSmall {
+  padding: 4px 8px;
+  border-radius: get-radius('radius/4');
+}
+
 .inner {
+  $sizes: (
+    xsmall: (padding: 2px),
+    small: (padding: 4px),
+    medium: (padding: 6px),
+    large: (padding: 8px)
+  );
+
   display: flex;
-  gap: get-spacing('spacing/8');
   align-items: center;
   justify-content: center;
+
+  @each $size, $values in $sizes {
+    &--#{$size} {
+      gap: custom-map-get($values, padding);
+    }
+  }
 }
 
 .icon {

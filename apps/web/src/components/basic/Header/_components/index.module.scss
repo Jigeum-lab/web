@@ -1,0 +1,7 @@
+.menu__list {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  gap: get-spacing('spacing/4');
+  cursor: pointer;
+}

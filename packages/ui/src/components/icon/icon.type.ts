@@ -160,7 +160,6 @@ export type IconSrc =
   | 'IcCircleClose'
   | 'IcLockOpen'
   | 'IcTemplateFill'
-  | 'IcBookmark'
   | 'IcDesktop'
   | 'IcChevronLeftThick'
   | 'IcWrite'

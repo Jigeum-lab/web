@@ -9,18 +9,29 @@
     display: flex;
     align-items: center;
     gap: 40px;
-
-    &__list {
-      display: flex;
-      align-items: center;
-      margin: auto;
-      gap: get-spacing('spacing/4');
-    }
   }
 
   &__right {
     display: flex;
     align-items: center;
     gap: get-spacing('spacing/20');
+  }
+}
+
+.icon {
+  cursor: pointer;
+
+  & > path {
+    fill: get-color('grays_gray-1');
+  }
+
+  &__button {
+    & > path {
+      fill: get-color('primary_normal');
+    }
+  }
+  
+  &__logo {
+    cursor: pointer;
   }
 }
