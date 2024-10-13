@@ -36,6 +36,10 @@
   @return rgba(map-get($colors, $key), $opacity);
 }
 
+@function get-device-sizes($key) {
+  @return map-get($device-sizes, $key);
+}
+
 @function get-aspect-ratio($orientation, $ratio) {
   // aspect-ratio: aspect-ratio('landscape', '16/9');
   @if custom-map-has-key($ratios, $orientation) {

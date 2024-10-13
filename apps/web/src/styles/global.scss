@@ -17,19 +17,18 @@ body {
 
 
 .container {
-  /**  max-width: ${theme.deviceSizes.maxSize}; */
+  max-width: get-device-sizes('max-size');
   margin: 0 auto;
 }
 
 .content {
   display: flex;
   flex-direction: column;
-
-  /**  row-gap: ${theme.spacing.spacing40}; */
+  row-gap: get-spacing('spacing/24');
 }
 
 .content-padding {
-  /**  padding: 0 ${theme.spacing.spacing30}; */
+  padding: 0 34px;
 }
 
 .sr-only {
