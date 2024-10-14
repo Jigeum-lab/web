@@ -1,3 +1,5 @@
+'use client'; // 클라이언트 컴포넌트로 선언
+
 import clsx from 'clsx';
 import type React from 'react';
 import { useEffect, useRef, useState } from 'react';
@@ -23,25 +25,25 @@ export const Image: React.FC<ImageProps> = ({
   className,
   ...restProps
 }) => {
-  const isLazyLoading = restProps.loading !== 'eager';
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [imgSrc, setImgSrc] = useState(src);
 
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    setLoading(true);
     setError(false);
     setImgSrc(src);
   }, [src]);
 
   useEffect(() => {
-    // ref로 이미지를 직접 확인하여 캐시된 상태 처리
+    // 캐시된 이미지를 감지하여 로딩 상태를 처리
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     if (imgRef.current && imgRef.current.complete) {
-      handleLoad(); // 캐시된 경우 바로 로드 처리
+      setLoading(false); // 이미지가 이미 로드된 경우 로딩 상태 건너뜀
+    } else {
+      setLoading(true);
     }
   }, [imgSrc]);
 
@@ -60,7 +62,7 @@ export const Image: React.FC<ImageProps> = ({
 
   return (
     <>
-      {isLazyLoading && loading && loadingPlaceholder && (
+      {loading && loadingPlaceholder && (
         <div
           className={clsx(styles.image, styles.imageLoading)}
           style={{

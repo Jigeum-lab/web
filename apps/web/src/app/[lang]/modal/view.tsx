@@ -1,4 +1,5 @@
 'use client';
+import { Image } from '@repo/ui';
 import { useOverlay } from '@toss/use-overlay';
 import { useState } from 'react';
 import { Sheet } from 'react-modal-sheet';
@@ -25,6 +26,14 @@ export const ModalView = () => {
     <div>
       <button onClick={openAlert}>modal</button>
       <button onClick={() => setOpen(true)}>Open sheet</button>
+      <Image
+        src={
+          'https://m.cnbnews.com/data/photos/20230730/art_328587_1690435362.jpg'
+        }
+        alt={'11'}
+        width={300}
+        height={200}
+      />
 
       <Sheet
         isOpen={isOpen}
