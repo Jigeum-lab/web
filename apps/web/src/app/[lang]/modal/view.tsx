@@ -34,7 +34,18 @@ export const ModalView = () => {
       >
         <Sheet.Container>
           <Sheet.Header />
-          <Sheet.Content>{/* Your sheet content goes here */}</Sheet.Content>
+          <Sheet.Content>
+            간다!
+            {/* Your sheet content goes here */}
+            <div
+              style={{
+                position: 'absolute',
+                bottom: 0,
+              }}
+            >
+              bottom
+            </div>
+          </Sheet.Content>
         </Sheet.Container>
         <Sheet.Backdrop />
       </Sheet>
