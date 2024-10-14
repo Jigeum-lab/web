@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import type React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import styles from './index.module.scss';
 
@@ -18,20 +18,32 @@ export const Image: React.FC<ImageProps> = ({
   alt,
   aspectRatio,
   fallbackSrc,
-  loadingPlaceholder,
-  errorPlaceholder,
+  loadingPlaceholder = <div>Loading...</div>,
+  errorPlaceholder = <div>Failed to load image</div>,
   className,
   ...restProps
 }) => {
+  const isLazyLoading = restProps.loading !== 'eager';
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [imgSrc, setImgSrc] = useState(src);
+
+  const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     setLoading(true);
     setError(false);
     setImgSrc(src);
   }, [src]);
+
+  useEffect(() => {
+    // ref로 이미지를 직접 확인하여 캐시된 상태 처리
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    if (imgRef.current && imgRef.current.complete) {
+      handleLoad(); // 캐시된 경우 바로 로드 처리
+    }
+  }, [imgSrc]);
 
   const handleLoad = () => {
     setLoading(false);
@@ -48,7 +60,7 @@ export const Image: React.FC<ImageProps> = ({
 
   return (
     <>
-      {loading && loadingPlaceholder && (
+      {isLazyLoading && loading && loadingPlaceholder && (
         <div
           className={clsx(styles.image, styles.imageLoading)}
           style={{
@@ -71,7 +83,7 @@ export const Image: React.FC<ImageProps> = ({
         </div>
       )}
       <img
-        {...restProps}
+        ref={imgRef}
         src={imgSrc}
         alt={alt}
         onLoad={handleLoad}
@@ -88,6 +100,7 @@ export const Image: React.FC<ImageProps> = ({
           objectFit: 'scale-down',
           ...restProps.style,
         }}
+        {...restProps}
       />
     </>
   );
