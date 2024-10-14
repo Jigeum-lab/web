@@ -201,4 +201,5 @@ export type IconSrc =
   | 'IcLogoNaverBlog'
   | 'IcLike'
   | 'IcBusinessBagFill'
-  | 'IcLineHorizontalThick';
+  | 'IcLineHorizontalThick'
+  | 'IcSignIn';
