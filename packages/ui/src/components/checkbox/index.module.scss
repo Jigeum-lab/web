@@ -1,9 +1,6 @@
-.checkbox {
+.wrapper {
   display: flex;
   align-items: center;
-  width: 24px;
-  height: 24px;
-  padding: 3px;
   cursor: pointer;
 }
 
@@ -11,26 +8,35 @@
   display: none;
 }
 
-.symbol {
+.checkbox {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 18px;
   height: 18px;
-  padding: 0;
   transition:
-    border 0.3s ease-out,
-    background-color 0.3s ease-out;
+    background-color 0.3s,
+    border-color 0.3s;
   border: 1.5px solid get-color('line_solid_normal');
-  border-radius: 4px;
+  border-radius: 3px;
+  background-color: get-color('static_white');
+  cursor: pointer;
 
-  &.--checked {
+  &.checkTrue {
     border: 1.5px solid get-color('primary_normal');
     background-color: get-color('primary_normal');
+  }
+
+  &.checkFalse {
+    border: 1.5px solid get-color('line_solid_normal');
+    background-color: get-color('static_white');
   }
 }
 
 .icon {
-  margin-left: -5px;
-  color: get-color('static_white');
+  fill: white;
+
+  .checkTrue & {
+    display: block;
+  }
 }

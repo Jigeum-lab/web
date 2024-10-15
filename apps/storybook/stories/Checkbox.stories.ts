@@ -1,6 +1,6 @@
+import { Checkbox } from '@repo/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { Checkbox } from './../../../packages/ui/src/components/checkbox/checkbox';
 
 const meta: Meta<typeof Checkbox> = {
   title: 'example/Checkbox',
@@ -10,11 +10,11 @@ const meta: Meta<typeof Checkbox> = {
   },
   tags: ['autodocs'],
   args: {
-    checked: false,
+    check: false,
     onChange: fn(),
   },
   argTypes: {
-    checked: {
+    check: {
       description: '체크박스의 체크 여부를 설정합니다.',
       control: { type: 'boolean' },
     },
@@ -29,12 +29,12 @@ export default meta;
 
 export const Normal: StoryObj<typeof Checkbox> = {
   args: {
-    checked: false,
+    check: false,
   },
 };
 
 export const Checked: StoryObj<typeof Checkbox> = {
   args: {
-    checked: true,
+    check: true,
   },
 };
