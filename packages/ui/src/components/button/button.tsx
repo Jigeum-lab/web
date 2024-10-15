@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import type React from 'react';
+import { forwardRef } from 'react';
 
 import styles from './index.module.scss';
 
@@ -25,91 +26,99 @@ export interface ButtonProps
   type?: 'submit' | 'button' | 'reset';
 }
 
-export const Button = ({
-  children,
-  className,
-  size = 'small',
-  leftIcon,
-  rightIcon,
-  variant,
-  fullWidth = false,
-  color,
-  type = 'button',
-  ...rest
-}: ButtonProps) => {
-  const getVariant = (_variant: ButtonProps['variant']) => {
-    switch (_variant) {
-      case 'filled':
-        return styles.filled;
-      case 'text':
-        return styles.text;
-      case 'outlined':
-        return styles.outlined;
-      default:
-        return styles.filled;
-    }
-  };
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      children,
+      className,
+      size = 'small',
+      leftIcon,
+      rightIcon,
+      variant,
+      fullWidth = false,
+      color,
+      type = 'button',
+      ...rest
+    }: ButtonProps,
+    ref
+  ) => {
+    const getVariant = (_variant: ButtonProps['variant']) => {
+      switch (_variant) {
+        case 'filled':
+          return styles.filled;
+        case 'text':
+          return styles.text;
+        case 'outlined':
+          return styles.outlined;
+        default:
+          return styles.filled;
+      }
+    };
 
-  const getSize = (_size: ButtonProps['size']) => {
-    switch (_size) {
-      case 'large':
-        return styles.sizeLarge;
-      case 'medium':
-        return styles.sizeMedium;
-      case 'small':
-        return styles.sizeSmall;
-      case 'xsmall':
-        return styles.sizeXSmall;
-      default:
-        return styles.sizeLarge;
-    }
-  };
+    const getSize = (_size: ButtonProps['size']) => {
+      switch (_size) {
+        case 'large':
+          return styles.sizeLarge;
+        case 'medium':
+          return styles.sizeMedium;
+        case 'small':
+          return styles.sizeSmall;
+        case 'xsmall':
+          return styles.sizeXSmall;
+        default:
+          return styles.sizeLarge;
+      }
+    };
 
-  const getTypographyLevel = (
-    _size: ButtonProps['size']
-  ): TypographyTextLevel => {
-    switch (_size) {
-      case 'large':
-        return 'heading1';
-      case 'medium':
-        return 'body1Normal';
-      case 'small':
-        return 'label1Normal';
-      case 'xsmall':
-        return 'caption2';
-      default:
-        return 'heading1';
-    }
-  };
+    const getTypographyLevel = (
+      _size: ButtonProps['size']
+    ): TypographyTextLevel => {
+      switch (_size) {
+        case 'large':
+          return 'heading1';
+        case 'medium':
+          return 'body1Normal';
+        case 'small':
+          return 'label1Normal';
+        case 'xsmall':
+          return 'caption2';
+        default:
+          return 'heading1';
+      }
+    };
 
-  return (
-    <button
-      type={type}
-      className={clsx(
-        styles.button,
-        getVariant(variant),
-        getSize(size),
-        fullWidth && styles.fullWidth,
-        className
-      )}
-      {...rest}
-    >
-      <div
+    return (
+      <button
+        ref={ref}
+        type={type}
         className={clsx(
-          styles.inner,
-          styles[`inner${capitalizeFirstLetter(size as string)}`]
+          styles.button,
+          getVariant(variant),
+          getSize(size),
+          fullWidth && styles.fullWidth,
+          className
         )}
+        {...rest}
       >
-        {leftIcon && <div className={styles.icon}>{leftIcon}</div>}
-        <Typography
-          level={getTypographyLevel(size)}
-          strong={true}
-          color={color}
+        <div
+          className={clsx(
+            styles.inner,
+            styles[`inner${capitalizeFirstLetter(size as string)}`]
+          )}
         >
-          {children}
-        </Typography>
-        {rightIcon && <div className={styles.icon}>{rightIcon}</div>}
-      </div>
-    </button>
-  );
-};
+          {leftIcon && <div className={styles.icon}>{leftIcon}</div>}
+          <Typography
+            level={getTypographyLevel(size)}
+            strong={true}
+            color={color}
+          >
+            {children}
+          </Typography>
+          {rightIcon && <div className={styles.icon}>{rightIcon}</div>}
+        </div>
+      </button>
+    );
+  }
+);
+
+Button.displayName = 'Button';
