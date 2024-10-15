@@ -2,9 +2,11 @@
 import { Image } from '@repo/ui';
 import { useOverlay } from '@toss/use-overlay';
 import { useState } from 'react';
+import { SwiperSlide } from 'swiper/react';
 
 import { Modal } from '@/components/basic/Modal';
 import { ModalSheet } from '@/components/basic/ModalSheet';
+import SwiperContainer from '@/components/basic/SwiperContainer/SwiperContainer';
 
 export const ModalView = () => {
   const overlay = useOverlay();
@@ -34,6 +36,14 @@ export const ModalView = () => {
         width={300}
         height={200}
       />
+
+      <SwiperContainer hashNavigation={true}>
+        <SwiperSlide>Slide 1</SwiperSlide>
+        <SwiperSlide>Slide 2</SwiperSlide>
+        <SwiperSlide>Slide 3</SwiperSlide>
+        <SwiperSlide>Slide 4</SwiperSlide>
+        <SwiperSlide>Slide 5</SwiperSlide>
+      </SwiperContainer>
 
       <ModalSheet
         content={'간다!'}
