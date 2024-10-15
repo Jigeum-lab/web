@@ -1,6 +1,6 @@
 import HeaderView from '@/components/basic/Header/HeaderView';
 
-const Header = () => {
+const Header = async () => {
   return <HeaderView />;
 };
 

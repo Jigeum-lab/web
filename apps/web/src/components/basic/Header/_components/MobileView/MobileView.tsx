@@ -1,12 +1,16 @@
 import { Button, Icon } from '@repo/ui';
 import clsx from 'clsx';
 import Link from 'next/link';
+import { signIn, signOut } from 'next-auth/react';
 import { useState } from 'react';
 
 import styles from './index.module.scss';
 
+import { useClientSession } from '@/utils/session/useClientSession';
+
 const MobileView = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { status } = useClientSession();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -48,16 +52,32 @@ const MobileView = () => {
           >
             등록하기
           </Button>
-          <Icon
-            name={'IcShareIos'}
-            width={20}
-            height={20}
-            viewBox={'0 0 24 24'}
-            className={styles.icon}
-            onClick={() => {
-              console.log('Sign In');
-            }}
-          />
+          {status === 'authenticated' ? (
+            <Icon
+              name={'IcShareIos'}
+              width={20}
+              height={20}
+              viewBox={'0 0 24 24'}
+              className={styles.icon}
+              onClick={() => {
+                signOut();
+              }}
+            />
+          ) : (
+            <Icon
+              name={'IcShareIos'}
+              width={20}
+              height={20}
+              viewBox={'0 0 24 24'}
+              className={styles.icon}
+              onClick={() => {
+                signIn('email-password-credentials', {
+                  email: '123',
+                  password: '123',
+                });
+              }}
+            />
+          )}
         </div>
       </>
     );
