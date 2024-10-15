@@ -1,5 +1,5 @@
 'use client';
-import { Image } from '@repo/ui';
+import { Image, TabComponent } from '@repo/ui';
 import { useOverlay } from '@toss/use-overlay';
 import { useState } from 'react';
 import { SwiperSlide } from 'swiper/react';
@@ -49,6 +49,7 @@ export const ModalView = () => {
         isOpen={isOpen}
         onClose={() => setOpen(false)}
       />
+      <TabComponent />
     </div>
   );
 };
