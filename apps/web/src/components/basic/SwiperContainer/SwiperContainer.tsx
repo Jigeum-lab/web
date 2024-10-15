@@ -1,5 +1,5 @@
 'use client';
-import { Button } from '@repo/ui';
+import { FloatingButton } from '@repo/ui';
 import clsx from 'clsx';
 import type { PropsWithChildren } from 'react';
 import { useState } from 'react';
@@ -7,20 +7,14 @@ import { Navigation } from 'swiper/modules';
 import type { SwiperProps } from 'swiper/react';
 import { Swiper } from 'swiper/react';
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
 import styles from './index.module.scss';
 
 interface Props extends SwiperProps {
   hasNavigation?: boolean;
-  navigationSpacing?: number;
 }
 
 const SwiperContainer = ({
   hasNavigation = false,
-  navigationSpacing = 0,
   modules = [],
   children,
   ...props
@@ -50,26 +44,26 @@ const SwiperContainer = ({
       modules={[Navigation, ...modules]}
       {...option}
     >
-      <Button
+      <FloatingButton
         ref={setPrevEl}
-        size={'small'}
+        size={'medium'}
+        color={'white'}
+        iconName={'IcChevronLeft'}
         className={clsx(
           styles.swiper__actionButton,
-          styles.swiper__actionButtonPrev
+          styles['swiper__actionButton--prev']
         )}
-      >
-        prev
-      </Button>
-      <Button
+      />
+      <FloatingButton
         ref={setNextEl}
-        size={'small'}
+        size={'medium'}
+        color={'white'}
+        iconName={'IcChevronRight'}
         className={clsx(
           styles.swiper__actionButton,
-          styles.swiper__actionButtonNext
+          styles['swiper__actionButton--next']
         )}
-      >
-        next
-      </Button>
+      />
       {children}
     </Swiper>
   );
