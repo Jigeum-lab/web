@@ -6,7 +6,7 @@ import { SwiperSlide } from 'swiper/react';
 
 import { Modal } from '@/components/basic/Modal';
 import { ModalSheet } from '@/components/basic/ModalSheet';
-import SwiperContainer from '@/components/basic/SwiperContainer/SwiperContainer';
+import { SwiperContainer } from '@/components/basic/SwiperContainer';
 
 export const ModalView = () => {
   const overlay = useOverlay();
@@ -37,14 +37,13 @@ export const ModalView = () => {
         height={200}
       />
 
-      <SwiperContainer hashNavigation={true}>
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
+      <SwiperContainer hasNavigation={true}>
+        <SwiperSlide style={{ height: 300 }}>Slide 1</SwiperSlide>
+        <SwiperSlide style={{ height: 300 }}>Slide 2</SwiperSlide>
+        <SwiperSlide style={{ height: 300 }}>Slide 3</SwiperSlide>
+        <SwiperSlide style={{ height: 300 }}>Slide 4</SwiperSlide>
+        <SwiperSlide style={{ height: 300 }}>Slide 5</SwiperSlide>
       </SwiperContainer>
-
       <ModalSheet
         content={'간다!'}
         isOpen={isOpen}
