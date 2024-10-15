@@ -2,9 +2,9 @@
 import { Image } from '@repo/ui';
 import { useOverlay } from '@toss/use-overlay';
 import { useState } from 'react';
-import { Sheet } from 'react-modal-sheet';
 
 import { Modal } from '@/components/basic/Modal';
+import { ModalSheet } from '@/components/basic/ModalSheet';
 
 export const ModalView = () => {
   const overlay = useOverlay();
@@ -12,7 +12,7 @@ export const ModalView = () => {
 
   const openAlert = () => {
     return overlay.open(({ isOpen, close }) => (
-      <Modal open={isOpen} onClose={close}>
+      <Modal isOpen={isOpen} onClose={close}>
         <div>
           <div>111</div>
           <div>222</div>
@@ -35,29 +35,11 @@ export const ModalView = () => {
         height={200}
       />
 
-      <Sheet
+      <ModalSheet
+        content={'간다!'}
         isOpen={isOpen}
         onClose={() => setOpen(false)}
-        snapPoints={[-50, 0.3, 100, 0]}
-        initialSnap={1}
-      >
-        <Sheet.Container>
-          <Sheet.Header />
-          <Sheet.Content>
-            간다!
-            {/* Your sheet content goes here */}
-            <div
-              style={{
-                position: 'absolute',
-                bottom: 0,
-              }}
-            >
-              bottom
-            </div>
-          </Sheet.Content>
-        </Sheet.Container>
-        <Sheet.Backdrop />
-      </Sheet>
+      />
     </div>
   );
 };

@@ -7,13 +7,13 @@ import { useBlockScrolling } from '@/hooks/useBlockScrolling';
 
 interface Props {
   children: React.ReactNode;
-  open: boolean;
+  isOpen: boolean;
   onClose: () => void;
 }
 
-export const Modal = ({ children, open, onClose }: Props) => {
-  if (!open) return null;
-  useBlockScrolling(open);
+export const Modal = ({ children, isOpen, onClose }: Props) => {
+  if (!isOpen) return null;
+  useBlockScrolling(isOpen);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (dialogRef.current && !dialogRef.current.contains(e.target as Node)) {
@@ -23,7 +23,7 @@ export const Modal = ({ children, open, onClose }: Props) => {
 
   return createPortal(
     <div className="modal-backdrop" onClick={handleBackdropClick}>
-      <dialog ref={dialogRef} className="modal" onClose={onClose} open={open}>
+      <dialog ref={dialogRef} className="modal" onClose={onClose} open={isOpen}>
         {children}
         <button onClick={onClose} className="close-button" />
       </dialog>
