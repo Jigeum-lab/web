@@ -587,10 +587,10 @@ export const LockOpenFill = (props: IconProps<'svg'>) => (
   <Icon {...props} width={32} height={32} name="IcLockOpenFill" />
 );
 export const LogoType1 = (props: IconProps<'svg'>) => (
-  <Icon {...props} width={120} height={120} name="IcLogo1" />
+  <Icon {...props} width={120} height={120} name="IcLogoType1" />
 );
 export const LogoType2 = (props: IconProps<'svg'>) => (
-  <Icon {...props} width={120} height={120} name="IcLogo2" />
+  <Icon {...props} width={120} height={120} name="IcLogoType2" />
 );
 export const LogoApple = (props: IconProps<'svg'>) => (
   <Icon {...props} width={32} height={32} name="IcLogoApple" />

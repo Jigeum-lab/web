@@ -108,7 +108,7 @@ export type IconSrc =
   | 'IcLockFill'
   | 'IcCircleCheckFill'
   | 'IcChevronLeft'
-  | 'IcLogo2'
+  | 'IcLogoType2'
   | 'IcLikeFill'
   | 'IcPause'
   | 'IcCoffeeCup'
@@ -119,7 +119,7 @@ export type IconSrc =
   | 'IcCameraFill'
   | 'IcMinus'
   | 'IcCaretUp'
-  | 'IcLogo1'
+  | 'IcLogoType1'
   | 'IcChevronDoubleLeftThick'
   | 'IcSearchThick'
   | 'IcBell'
@@ -201,4 +201,5 @@ export type IconSrc =
   | 'IcLogoNaverBlog'
   | 'IcLike'
   | 'IcBusinessBagFill'
-  | 'IcLineHorizontalThick';
+  | 'IcLineHorizontalThick'
+  | 'IcSignIn';
