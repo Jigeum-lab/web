@@ -1,4 +1,4 @@
-import type { MenuItemProps } from './_components/MenuItem';
+import type { MenuItemProps } from './_components/MenuItem/MenuItem';
 
 export const menuList: MenuItemProps[] = [
   {

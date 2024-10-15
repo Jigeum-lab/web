@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 58px;
+  padding: get-spacing('spacing/12') 0;
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: get-spacing('spacing/12');
+
+    @include desktop {
+      gap: 40px;
+    }
+
+    &__hamburger {
+      cursor: pointer;
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: get-spacing('spacing/20');
+  }
+}
+
+.icon {
+  cursor: pointer;
+
+  & > path {
+    fill: get-color('grays_gray-1');
+  }
+
+  &__button {
+    & > path {
+      fill: get-color('primary_normal');
+    }
+  }
+  
+  &__logo {
+    cursor: pointer;
+  }
+}
