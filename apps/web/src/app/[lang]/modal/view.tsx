@@ -11,6 +11,7 @@ import { SwiperContainer } from '@/components/basic/SwiperContainer';
 export const ModalView = () => {
   const overlay = useOverlay();
   const [isOpen, setOpen] = useState(false);
+  const [index, setIndex] = useState(0);
 
   const openAlert = () => {
     return overlay.open(({ isOpen, close }) => (
@@ -49,7 +50,15 @@ export const ModalView = () => {
         isOpen={isOpen}
         onClose={() => setOpen(false)}
       />
-      <TabComponent />
+      <TabComponent
+        tabs={[
+          { name: 'Tab1', content: 'Tab menu ONE' },
+          { name: 'Tab2', content: 'Tab menu TWO' },
+          { name: 'Tab3', content: 'Tab menu THREE' },
+        ]}
+        index={index}
+        onChange={setIndex}
+      />
     </div>
   );
 };
