@@ -1,6 +1,7 @@
+'use client';
 import HeaderView from '@/components/basic/Header/HeaderView';
 
-const Header = async () => {
+const Header = () => {
   return <HeaderView />;
 };
 

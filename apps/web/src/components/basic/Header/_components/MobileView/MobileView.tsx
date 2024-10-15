@@ -1,3 +1,4 @@
+'use client';
 import { Button, Icon } from '@repo/ui';
 import clsx from 'clsx';
 import Link from 'next/link';
@@ -83,36 +84,28 @@ const MobileView = () => {
     );
   };
 
-  const Sidebar = () => {
-    return (
-      <>
-        <div className={clsx(styles.sidebar, isOpen && styles.sidebar__open)}>
-          <div className={styles.sidebar__content}>
-            <input
-              type="text"
-              placeholder="Search"
-              className={styles.sidebar__content__searchBar}
-            />
-            <ul className={styles.sidebar__content__menuItems}>
-              <li>프로젝트</li>
-              <li>아티클</li>
-            </ul>
-            <div className={styles.sidebar__content__logout}>로그아웃</div>
-          </div>
-        </div>
-        {/* 오버레이: 사이드바 열렸을 때 배경을 덮는 부분 */}
-        <div
-          className={clsx(styles.overlay, isOpen && styles.overlay__visible)}
-          onClick={toggleSidebar}
-        />
-      </>
-    );
-  };
-
   return (
     <header className={styles.header}>
       <Mobile />
-      <Sidebar />
+      <div className={clsx(styles.sidebar, isOpen && styles.sidebar__open)}>
+        <div className={styles.sidebar__content}>
+          <input
+            type="text"
+            placeholder="Search"
+            className={styles.sidebar__content__searchBar}
+          />
+          <ul className={styles.sidebar__content__menuItems}>
+            <li>프로젝트</li>
+            <li>아티클</li>
+          </ul>
+          <div className={styles.sidebar__content__logout}>로그아웃</div>
+        </div>
+      </div>
+      {/* 오버레이: 사이드바 열렸을 때 배경을 덮는 부분 */}
+      <div
+        className={clsx(styles.overlay, isOpen && styles.overlay__visible)}
+        onClick={toggleSidebar}
+      />
     </header>
   );
 };
