@@ -1,0 +1,38 @@
+.container {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: get-color('grays_gray-5');
+}
+
+.xs {
+  width: 24px;
+  height: 24px;
+}
+
+.s {
+  width: 32px;
+  height: 32px;
+}
+
+.m {
+  width: 40px;
+  height: 40px;
+}
+
+.l {
+  width: 48px;
+  height: 48px;
+}
+
+.xl {
+  width: 56px;
+  height: 56px;
+}
+
+.xxl {
+  width: 64px;
+  height: 64px;
+}
