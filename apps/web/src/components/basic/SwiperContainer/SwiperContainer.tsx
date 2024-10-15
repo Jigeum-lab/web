@@ -3,7 +3,7 @@ import { FloatingButton } from '@repo/ui';
 import clsx from 'clsx';
 import type { PropsWithChildren } from 'react';
 import { useState } from 'react';
-import { Navigation } from 'swiper/modules';
+import { A11y, Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import type { SwiperProps } from 'swiper/react';
 import { Swiper } from 'swiper/react';
 
@@ -41,7 +41,7 @@ const SwiperContainer = ({
     <Swiper
       className={styles.swiper}
       navigation={{ prevEl, nextEl }}
-      modules={[Navigation, ...modules]}
+      modules={[Navigation, Pagination, Scrollbar, A11y, ...modules]}
       {...option}
     >
       <FloatingButton
