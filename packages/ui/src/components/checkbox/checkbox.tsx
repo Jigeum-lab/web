@@ -1,9 +1,8 @@
 import clsx from 'clsx';
 import type React from 'react';
 
-import { IcCheck } from '../icon/_components/assets';
-// eslint-disable-next-line import/order
 import styles from './index.module.scss';
+import { IcCheck } from '../icon/_components/assets';
 
 export interface CheckboxProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
