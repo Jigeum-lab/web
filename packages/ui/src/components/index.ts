@@ -5,4 +5,5 @@ export * from './floating-button';
 export * from './icon';
 export * from './image';
 export * from './switch';
+export * from './checkbox';
 export * from './typography';
