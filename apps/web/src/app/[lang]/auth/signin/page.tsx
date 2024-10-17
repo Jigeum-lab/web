@@ -1,5 +1,5 @@
 import { queryFetchAuthSession } from '@/api/queries/auth';
-import ViewComponent from '@/app/auth/signin/view';
+import ViewComponent from '@/app/[lang]/auth/signin/view';
 import HydratePage from '@/components/basic/HydratePage';
 import getQueryClient from '@/utils/query/getQueryClient';
 

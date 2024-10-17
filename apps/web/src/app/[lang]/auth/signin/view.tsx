@@ -4,7 +4,7 @@ import { signIn, signOut } from 'next-auth/react';
 
 import styles from './styles/index.module.scss';
 
-import { useMainCharacterViewModel } from '@/app/auth/signin/hooks';
+import { useMainCharacterViewModel } from '@/app/[lang]/auth/signin/hooks';
 import { useClientSession } from '@/utils/session/useClientSession';
 
 const ViewComponent = () => {

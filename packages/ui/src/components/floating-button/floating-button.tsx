@@ -1,15 +1,16 @@
 import clsx from 'clsx';
 import type React from 'react';
+import { forwardRef } from 'react';
 
 import { Icon } from '../icon';
-import { Typography } from '../typography';
 import styles from './index.module.scss';
 
+import { Typography } from '@/components';
 import type { IconTypes } from '@/components/icon/icon.type';
 
 export interface FloatingButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  text: string;
+  text?: string;
   iconName: IconTypes;
   color?: 'blue' | 'white';
   size?: 'large' | 'medium';
@@ -62,34 +63,45 @@ const getTypographyLevel = (_size: FloatingButtonProps['size']) => {
   }
 };
 
-export const FloatingButton: React.FC<FloatingButtonProps> = ({
-  text = '',
-  iconName,
-  color,
-  size,
-  interact,
-  className,
-  ...rest
-}) => {
-  return (
-    <div>
-      <button
-        className={clsx(
-          styles.floatingButton,
-          getColor(color),
-          getSize(size),
-          getInteract(interact),
-          className
-        )}
-        {...rest}
-      >
-        <div className={styles.iconWrapper}>
-          <Icon className={clsx(styles.icon)} name={iconName} />
+export const FloatingButton = forwardRef<
+  HTMLButtonElement,
+  FloatingButtonProps
+>(
+  (
+    {
+      text = '',
+      iconName,
+      color,
+      size,
+      interact,
+      className,
+      ...rest
+    }: FloatingButtonProps,
+    ref
+  ) => {
+    return (
+      <>
+        <button
+          ref={ref} // ref 연결
+          className={clsx(
+            styles.floatingButton,
+            getColor(color),
+            getSize(size),
+            getInteract(interact),
+            className
+          )}
+          {...rest}
+        >
+          <div className={styles.iconWrapper}>
+            <Icon className={clsx(styles.icon)} name={iconName} />
+          </div>
+        </button>
+        <div className={styles.textWrapper}>
+          <Typography level={getTypographyLevel(size)}>{text}</Typography>
         </div>
-      </button>
-      <div className={styles.textWrapper}>
-        <Typography level={getTypographyLevel(size)}>{text}</Typography>
-      </div>
-    </div>
-  );
-};
+      </>
+    );
+  }
+);
+
+FloatingButton.displayName = 'FloatingButton'; // forwardRef 사용 시 컴포넌트 이름 설정 필요

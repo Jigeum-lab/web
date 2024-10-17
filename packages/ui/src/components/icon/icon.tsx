@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 import * as AssetComponent from './_components/assets';

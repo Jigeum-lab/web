@@ -1,0 +1,22 @@
+.swiper {
+  position: relative;
+
+  &__actionButton {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    opacity: 0;
+
+    &--prev {
+      left: 10px;
+    }
+
+    &--next {
+      right: 10px;
+    }
+  }
+
+  &:hover .swiper__actionButton:not(:disabled) {
+    opacity: 1;
+  }
+}

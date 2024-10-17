@@ -7,3 +7,5 @@ export * from './image';
 export * from './switch';
 export * from './checkbox';
 export * from './typography';
+export * from './tab-component';
+export * from './indicator';
