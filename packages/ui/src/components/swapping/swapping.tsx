@@ -3,18 +3,16 @@ import clsx from 'clsx';
 import styles from './index.module.scss';
 
 export interface SwappingProps {
-  left: React.ReactNode;
-  right: React.ReactNode;
-  value: 'left' | 'right';
-  onChange: (value: SwappingProps['value']) => void;
+  value: string;
+  options: [string, string];
+  onChange: (value: string) => void;
   size?: 'm' | 'l';
 }
 
 export const Swapping = ({
-  left,
-  right,
   value,
   onChange,
+  options,
   size = 'm',
 }: SwappingProps) => {
   const handleToggle = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -22,7 +20,9 @@ export const Swapping = ({
       | 'left'
       | 'right';
 
-    onChange(value);
+    const currentValue = value === 'left' ? options[0] : options[1];
+
+    onChange(currentValue);
   };
 
   const getSize = (size: SwappingProps['size']) => {
@@ -39,24 +39,24 @@ export const Swapping = ({
       <button
         className={clsx(
           styles.button,
-          value === 'left' && styles.active,
+          value === options[0] && styles.active,
           styles[getSize(size)]
         )}
         data-value="left"
         onClick={handleToggle}
       >
-        {left}
+        {options[0]}
       </button>
       <button
         className={clsx(
           styles.button,
-          value === 'right' && styles.active,
+          value === options[1] && styles.active,
           styles[getSize(size)]
         )}
         data-value="right"
         onClick={handleToggle}
       >
-        {right}
+        {options[1]}
       </button>
     </div>
   );
