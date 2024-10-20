@@ -27,6 +27,7 @@ export const Input = ({
   isInvalid,
   disabled,
   text,
+  placeholder,
   ...args
 }: InputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -58,7 +59,7 @@ export const Input = ({
         value={value}
         onChange={onChange}
         ref={inputRef}
-        placeholder="Text Field"
+        placeholder={placeholder ? placeholder : 'Text Field'}
         {...args}
         disabled={disabled}
       />
