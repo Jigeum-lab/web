@@ -13,8 +13,8 @@ import { Icon } from '../icon';
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   value: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  showLeftIcon: boolean;
-  showRightIcon: boolean;
+  showLeftIcon?: boolean;
+  showRightIcon?: boolean;
   isInvalid?: boolean;
   text?: string;
 }
