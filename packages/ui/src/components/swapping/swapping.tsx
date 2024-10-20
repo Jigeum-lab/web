@@ -4,7 +4,7 @@ import styles from './index.module.scss';
 
 export interface SwappingProps {
   value: string;
-  options: [string, string];
+  options: Array<string>;
   onChange: (value: string) => void;
   size?: 'm' | 'l';
 }
@@ -16,13 +16,8 @@ export const Swapping = ({
   size = 'm',
 }: SwappingProps) => {
   const handleToggle = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const value = event.currentTarget.getAttribute('data-value') as
-      | 'left'
-      | 'right';
-
-    const currentValue = value === 'left' ? options[0] : options[1];
-
-    onChange(currentValue);
+    const value = event.currentTarget.value;
+    onChange(value);
   };
 
   const getSize = (size: SwappingProps['size']) => {
@@ -36,28 +31,22 @@ export const Swapping = ({
 
   return (
     <div className={clsx(styles.container, styles[getSize(size)])}>
-      <button
-        className={clsx(
-          styles.button,
-          value === options[0] && styles.active,
-          styles[getSize(size)]
-        )}
-        data-value="left"
-        onClick={handleToggle}
-      >
-        {options[0]}
-      </button>
-      <button
-        className={clsx(
-          styles.button,
-          value === options[1] && styles.active,
-          styles[getSize(size)]
-        )}
-        data-value="right"
-        onClick={handleToggle}
-      >
-        {options[1]}
-      </button>
+      {options.map((option, index) => {
+        return (
+          <button
+            key={option}
+            className={clsx(
+              styles.button,
+              value === option && styles.active,
+              styles[getSize(size)]
+            )}
+            onClick={handleToggle}
+            value={option}
+          >
+            {options[index]}
+          </button>
+        );
+      })}
     </div>
   );
 };
