@@ -63,7 +63,7 @@ export const Input = ({
         disabled={disabled}
       />
       {showRightIcon && (
-        <Button size="small" variant="filled">
+        <Button size="small" variant="filled" disabled={disabled}>
           {text ? text : '입력'}
         </Button>
       )}
