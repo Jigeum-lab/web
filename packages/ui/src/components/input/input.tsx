@@ -10,7 +10,7 @@ import styles from './index.module.scss';
 import { Button } from '../button';
 import { Icon } from '../icon';
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   value: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   showLeftIcon: boolean;
