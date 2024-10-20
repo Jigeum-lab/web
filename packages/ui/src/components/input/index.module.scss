@@ -12,12 +12,12 @@
 
   cursor: text;
 
-  &.invalid {
-    border: 1px solid get-color('colors_red');
-  }
-
   &.focus {
     border: 1px solid get-color('primary_normal');
+  }
+
+  &.invalid {
+    border: 1px solid get-color('colors_red');
   }
 
   &.disabled {
