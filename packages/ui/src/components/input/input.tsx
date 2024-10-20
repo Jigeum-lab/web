@@ -16,6 +16,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   showLeftIcon: boolean;
   showRightIcon: boolean;
   isInvalid?: boolean;
+  text?: string;
 }
 
 export const Input = ({
@@ -25,6 +26,7 @@ export const Input = ({
   showRightIcon,
   isInvalid,
   disabled,
+  text,
   ...args
 }: InputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -62,7 +64,7 @@ export const Input = ({
       />
       {showRightIcon && (
         <Button size="small" variant="filled">
-          입력
+          {text ? text : '입력'}
         </Button>
       )}
     </div>
