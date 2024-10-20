@@ -13,6 +13,7 @@ import { Icon } from '../icon';
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   value: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  name: string;
   showLeftIcon?: boolean;
   showRightIcon?: boolean;
   isInvalid?: boolean;
