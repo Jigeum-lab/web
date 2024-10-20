@@ -6,29 +6,29 @@ import {
   type InputHTMLAttributes,
 } from 'react';
 
+import { Typography, type TypographyTextLevel } from '../typography';
 import styles from './index.module.scss';
-import { Button } from '../button';
-import { Icon } from '../icon';
+
+import { Button, type ButtonProps } from '@/components/button';
+import { Icon } from '@/components/icon';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   value: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   name: string;
   showLeftIcon?: boolean;
-  showRightIcon?: boolean;
   isInvalid?: boolean;
-  text?: string;
+  buttonProps?: ButtonProps;
 }
 
 export const Input = ({
   value,
   onChange,
   showLeftIcon,
-  showRightIcon,
   isInvalid,
   disabled,
-  text,
   placeholder,
+  buttonProps,
   ...args
 }: InputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -41,6 +41,21 @@ export const Input = ({
 
     setIsFocus(true);
     inputRef.current?.focus();
+  };
+
+  const getTypographyLevel = (
+    _size: ButtonProps['size']
+  ): TypographyTextLevel => {
+    switch (_size) {
+      case 'large':
+        return 'heading1';
+      case 'medium':
+        return 'body1Normal';
+      case 'small':
+        return 'label1Normal';
+      default:
+        return 'label1Normal';
+    }
   };
 
   return (
@@ -64,9 +79,11 @@ export const Input = ({
         {...args}
         disabled={disabled}
       />
-      {showRightIcon && (
-        <Button size="small" variant="filled" disabled={disabled}>
-          {text ? text : '입력'}
+      {buttonProps && (
+        <Button size="small" variant="filled" {...buttonProps}>
+          <Typography level={getTypographyLevel(buttonProps.size)}>
+            {buttonProps.children ?? '입력'}
+          </Typography>
         </Button>
       )}
     </div>
