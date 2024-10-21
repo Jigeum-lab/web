@@ -1,6 +1,9 @@
 const path = require('path');
+const createNextIntlPlugin = require('next-intl/plugin');
+const withNextIntl = createNextIntlPlugin();
 
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   transpilePackages: ['@repo/ui'],
   output: 'standalone',
@@ -15,3 +18,5 @@ module.exports = {
     outputFileTracingRoot: path.join(__dirname, '../../'),
   },
 };
+
+module.exports = withNextIntl(nextConfig);

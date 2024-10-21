@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.input {
+  display: none;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
+  border: 1.5px solid get-color('line_solid_normal');
+  border-radius: 3px;
+  background-color: get-color('static_white');
+  cursor: pointer;
+
+  &.checkTrue {
+    border: 1.5px solid get-color('primary_normal');
+    background-color: get-color('primary_normal');
+  }
+
+  &.checkFalse {
+    border: 1.5px solid get-color('line_solid_normal');
+    background-color: get-color('static_white');
+  }
+}
+
+.icon {
+  fill: white;
+
+  .checkTrue & {
+    display: block;
+  }
+}

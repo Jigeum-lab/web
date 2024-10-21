@@ -32,6 +32,14 @@
   @return map-get($spacings, $key);
 }
 
+@function get-color-with-opacity($key, $opacity: 1) {
+  @return rgba(map-get($colors, $key), $opacity);
+}
+
+@function get-device-sizes($key) {
+  @return map-get($device-sizes, $key);
+}
+
 @function get-aspect-ratio($orientation, $ratio) {
   // aspect-ratio: aspect-ratio('landscape', '16/9');
   @if custom-map-has-key($ratios, $orientation) {
@@ -61,13 +69,7 @@
 }
 
 @mixin mobile {
-  @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet - 1px}) {
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) {
+  @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-desktop - 1px}) {
     @content;
   }
 }

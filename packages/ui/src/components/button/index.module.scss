@@ -1,74 +1,78 @@
 .filled {
-  background-color: get-color('interaction/blue/normal');
-  color: get-color('static/white');
+  background-color: get-color('interaction_blue_normal');
+  color: get-color('static_white');
 
   &:hover {
-    background-color: get-color('interaction/blue/hovered');
+    background-color: get-color('interaction_blue_hovered');
   }
 
   &:focus {
-    background-color: get-color('interaction/blue/hovered');
+    background-color: get-color('interaction_blue_hovered');
   }
 
   &:active {
-    background-color: get-color('interaction/blue/pressed');
+    background-color: get-color('interaction_blue_pressed');
   }
 
   &:disabled {
-    background-color: get-color('interaction/disable');
-    color: get-color('labels/disable');
+    background-color: get-color('interaction_disable');
+    color: get-color('labels_disable');
     cursor: default;
   }
 };
 
 .outlined {
-  border: 1px solid get-color('primary/normal');
-  background-color: get-color('static/white');
-  color: get-color('primary/normal');
+  border: 1px solid get-color('primary_normal');
+  background-color: get-color('static_white');
+  color: get-color('primary_normal');
 
   &:hover {
-    background-color: get-color('interaction/white/hovered');
+    background-color: get-color('interaction_white_hovered');
   }
 
   &:focus {
-    background-color: get-color('interaction/white/hovered');
+    background-color: get-color('interaction_white_hovered');
   }
 
   &:active {
-    background-color: get-color('interaction/white/pressed');
+    background-color: get-color('interaction_white_pressed');
   }
 
   &:disabled {
-    border-color: get-color('line/normal/normal');
-    background-color: get-color('interaction/disable');
-    color: get-color('labels/disable');
+    border-color: get-color('line_normal_normal');
+    background-color: get-color('interaction_disable');
+    color: get-color('labels_disable');
     cursor: default;
   }
 };
 
 .text {
   border: 0;
-  background-color: get-color('static/white');
-  color: get-color('primary/strong');
+  background-color: get-color('static_white');
+  color: get-color('primary_strong');
 
   &:hover {
-    background-color: get-color('interaction/white/hovered');
+    background-color: get-color('interaction_white_hovered');
   }
 
   &:focus {
-    background-color: get-color('interaction/white/hovered');
+    background-color: get-color('interaction_white_hovered');
   }
 
   &:active {
-    background-color: get-color('interaction/white/pressed');
+    background-color: get-color('interaction_white_pressed');
   }
 
   &:disabled {
-    background-color: get-color('interaction/disable');
-    color: get-color('labels/disable');
+    background-color: get-color('interaction_disable');
+    color: get-color('labels_disable');
     cursor: default;
   }
 };
+
+.fullWidth {
+  width: 100%;
+}
 
 .sizeLarge {
   padding: get-spacing('spacing/12') get-spacing('spacing/28');
@@ -83,4 +87,33 @@
 .sizeSmall {
   padding: 7px 14px;
   border-radius: get-radius('radius/6');
+}
+
+.sizeXSmall {
+  padding: 4px 8px;
+  border-radius: get-radius('radius/4');
+}
+
+.inner {
+  $sizes: (
+    xsmall: (padding: 2px),
+    small: (padding: 4px),
+    medium: (padding: 6px),
+    large: (padding: 8px)
+  );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @each $size, $values in $sizes {
+    &--#{$size} {
+      gap: custom-map-get($values, padding);
+    }
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
 }

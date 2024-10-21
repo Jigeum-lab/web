@@ -1,0 +1,88 @@
+.floatingButton {
+  box-shadow: get-shadow('shadow/strong');
+
+  &.blue {
+    background-color: get-color('primary_normal');
+
+    * {
+      fill: get-color('static_white');
+    }
+  }
+
+  &.white {
+    background-color: get-color('static_white');
+
+    * {
+      fill: get-color('primary_normal');
+    }
+  }
+}
+
+.blue {
+  &.interactNomal {
+    background-color: get-color('primary_normal');
+  }
+
+  &.interactHovered {
+    background-color: get-color('interaction_blue_hovered');
+  }
+
+  &.interactPressed {
+    background-color: get-color('interaction_blue_pressed');
+  }
+}
+
+.white {
+  &.interactNomal {
+    background-color: get-color('static_white');
+  }
+
+  &.interactHovered {
+    background-color: get-color('interaction_white_hovered');
+  }
+
+  &.interactPressed {
+    background-color: get-color('interaction_white_pressed');
+  }
+}
+
+.sizeLarge {
+  &.floatingButton {
+    width: 60px;
+    height: 60px;
+    border-radius: get-radius('radius/100');
+  }
+
+  &icon {
+    width: 21px;
+    height: 21px;
+  }
+}
+
+.sizeMedium {
+  &.floatingButton {
+    width: 48px;
+    height: 48px;
+    border-radius: get-radius('radius/100');
+  }
+
+  &icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.textWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 60px;
+  margin-top: 8px;
+  color: get-color('labels_alternative');
+
+  &.sizeMedium {
+    max-width: 48px;
+    margin-top: 6px;
+    color: get-color('labels_alternative');
+  }
+}
