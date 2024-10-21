@@ -35,6 +35,10 @@
       "cache": false,
       "persistent": true
     },
+    "orval": {
+      "cache": false,
+      "persistent": true
+    },
     "clean": {
       "cache": false
     },

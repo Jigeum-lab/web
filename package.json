@@ -11,6 +11,7 @@
     "start": "turbo run start",
     "clean": "turbo run clean",
     "dev": "turbo run dev",
+    "orval": "turbo run orval",
     "stylelint": "turbo run stylelint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo run lint",
