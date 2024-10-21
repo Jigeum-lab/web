@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 
+type ScreenSize = 'desktop' | 'mobile';
 export const useScreenSize = () => {
-  const [screenSize, setScreenSize] = useState('mobile');
+  const [screenSize, setScreenSize] = useState<ScreenSize>('mobile');
 
   useEffect(() => {
     const handleResize = () => {
