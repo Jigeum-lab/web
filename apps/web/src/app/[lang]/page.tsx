@@ -1,6 +1,6 @@
 import MainView from '@/app/[lang]/main/view';
 import HydratePage from '@/components/basic/HydratePage';
-import { getGetProjectListQueryOptions } from '@/models/프로젝트-read-api/프로젝트-read-api';
+import { getGetProjectListQueryOptions } from '@/models/project-read-api/project-read-api';
 import getQueryClient from '@/utils/query/getQueryClient';
 
 const Web = async () => {
