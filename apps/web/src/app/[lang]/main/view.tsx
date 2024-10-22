@@ -2,9 +2,12 @@
 import { useTranslations } from 'next-intl';
 
 import { ImageGallery } from '@/components/basic/ImageGallery';
+import { useGetProjectList } from '@/models/project-read-api/project-read-api';
 
 const MainView = () => {
   const t = useTranslations('home');
+  const { data } = useGetProjectList();
+  console.log('data', data);
   return (
     <div>
       <h1>{t('IndexPage.title')}</h1>

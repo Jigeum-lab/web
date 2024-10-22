@@ -9,5 +9,10 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: ['.*.js', '*.config.js'],
+  ignorePatterns: [
+    '.*.js',
+    '*.config.js',
+    'src/models/**',
+    'src/types/apis/**',
+  ],
 };
