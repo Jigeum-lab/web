@@ -2,7 +2,7 @@ import type { AxiosError, AxiosRequestConfig } from 'axios';
 import Axios from 'axios';
 import { getSession } from 'next-auth/react';
 
-import { API_QA_URL, API_URL } from '@/config';
+import { BASE_URL } from '@/api/config';
 import { getUserServerSession } from '@/utils/session/getUserServerSession';
 
 async function getUserClientSession() {
@@ -11,7 +11,7 @@ async function getUserClientSession() {
 }
 
 export const AXIOS_INSTANCE = Axios.create({
-  baseURL: process.env.NODE_ENV === 'production' ? API_URL : API_QA_URL,
+  baseURL: BASE_URL,
 }); // use your own URL here or environment variable
 
 // add a second `options` argument here if you want to pass extra options to each generated query
