@@ -66,7 +66,7 @@ export const getUpdateProjectLinksMockHandler = (overrideResponse?: ApiResponseS
       })
   })
 }
-export const getUpdateApiMock = () => [
+export const getProjectUpdateApiMock = () => [
   getUpdateProjectSlugMockHandler(),
   getUpdateMembersMockHandler(),
   getUpdateProjectLinksMockHandler()

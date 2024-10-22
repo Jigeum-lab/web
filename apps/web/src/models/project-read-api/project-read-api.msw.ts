@@ -135,7 +135,7 @@ export const getGetProjectCategoriesMockHandler = (overrideResponse?: ApiRespons
       })
   })
 }
-export const getReadApiMock = () => [
+export const getProjectReadApiMock = () => [
   getGetProjectListMockHandler(),
   getLikeProjectMockHandler(),
   getGetProjectMembersMockHandler(),

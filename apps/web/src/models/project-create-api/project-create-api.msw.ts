@@ -50,7 +50,7 @@ export const getCheckSlugAvailabilityMockHandler = (overrideResponse?: ApiRespon
       })
   })
 }
-export const getCreateApiMock = () => [
+export const getProjectCreateApiMock = () => [
   getCreateProjectMockHandler(),
   getCheckSlugAvailabilityMockHandler()
 ]
