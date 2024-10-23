@@ -95,7 +95,29 @@ const MobileView = () => {
     <header className={styles.header}>
       <Mobile />
       <div className={clsx(styles.sidebar, isOpen && styles.sidebar__open)}>
-        <div className={styles.sidebar__content}>
+        <div className={styles.sidebar__header}>
+          <Icon
+            name={'IcClose'}
+            width={20}
+            height={20}
+            viewBox={'0 0 24 24'}
+            style={{
+              marginRight: '12px',
+            }}
+            onClick={toggleSidebar}
+          />
+          <Link href={'/'} title={'Phase On'} onClick={toggleSidebar}>
+            <Icon
+              name={'IcLogo'}
+              className={styles.icon__logo}
+              width={77}
+              height={22}
+              viewBox={'0 0 112 32'}
+            />
+            <h1 className={'sr-only'}>Phase On</h1>
+          </Link>
+        </div>
+        <div className={clsx(styles.sidebar__content, styles.sidebar__gap)}>
           <Input
             showLeftIcon={true}
             value={search}
