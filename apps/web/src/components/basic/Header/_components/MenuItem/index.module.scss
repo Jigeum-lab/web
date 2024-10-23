@@ -2,6 +2,15 @@
   display: flex;
   align-items: center;
   margin: auto;
-  gap: get-spacing('spacing/4');
+  color: get-color('labels_neutral');
   cursor: pointer;
+  gap: get-spacing('spacing/4');
+
+  .active {
+    color: get-color('primary_normal');
+
+    & > path {
+      fill: get-color('primary_normal');
+    }
+  }
 }

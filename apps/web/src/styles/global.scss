@@ -30,6 +30,9 @@ body {
 
 .content-padding {
   padding: 0 34px;
+  @include mobile {
+    padding: 0 get-spacing('spacing/20');
+  }
 }
 
 .sr-only {

@@ -1,10 +1,10 @@
 .container {
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-
+  border-radius: 50%;
   background-color: get-color('grays_gray-5');
+  cursor: pointer;
 }
 
 .xs {

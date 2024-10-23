@@ -1,4 +1,5 @@
 'use client';
+import { Input } from '@repo/ui';
 import { useTranslations } from 'next-intl';
 
 import { ImageGallery } from '@/components/basic/ImageGallery';
@@ -11,6 +12,14 @@ const MainView = () => {
   return (
     <div>
       <h1>{t('IndexPage.title')}</h1>
+      <Input
+        showLeftIcon={true}
+        value={''}
+        onChange={(e) => {
+          console.log('e');
+        }}
+        name={'search'}
+      />
       <div>
         Image Banner
         <ImageGallery

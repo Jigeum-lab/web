@@ -1,17 +1,25 @@
 'use client';
-import { Button, Icon } from '@repo/ui';
+import { Avatar, Button, Icon, Input } from '@repo/ui';
 import clsx from 'clsx';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { signIn, signOut } from 'next-auth/react';
 import { useState } from 'react';
 
 import styles from './index.module.scss';
 
+import { MenuItem } from '@/components/basic/Header/_components';
+import { menuList } from '@/components/basic/Header/data';
+import { useBlockScrolling } from '@/hooks/useBlockScrolling';
 import { useClientSession } from '@/utils/session/useClientSession';
 
 const MobileView = () => {
+  const { session } = useClientSession();
+  const isLogin = session !== null;
+  const router = useRouter();
+  const [search, setSearch] = useState('');
   const [isOpen, setIsOpen] = useState(false);
-  const { status } = useClientSession();
+  useBlockScrolling(isOpen);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -53,20 +61,19 @@ const MobileView = () => {
           >
             등록하기
           </Button>
-          {status === 'authenticated' ? (
-            <Icon
-              name={'IcShareIos'}
-              width={20}
-              height={20}
-              viewBox={'0 0 24 24'}
-              className={styles.icon}
-              onClick={() => {
-                signOut();
-              }}
-            />
+          {isLogin ? (
+            <>
+              <Icon name={'IcBell'} className={styles.icon} />
+              <Avatar
+                size={'s'}
+                onClick={() => {
+                  router.push('/mypage');
+                }}
+              />
+            </>
           ) : (
             <Icon
-              name={'IcShareIos'}
+              name={'IcSignIn'}
               width={20}
               height={20}
               viewBox={'0 0 24 24'}
@@ -88,17 +95,67 @@ const MobileView = () => {
     <header className={styles.header}>
       <Mobile />
       <div className={clsx(styles.sidebar, isOpen && styles.sidebar__open)}>
-        <div className={styles.sidebar__content}>
-          <input
-            type="text"
-            placeholder="Search"
+        <div className={styles.sidebar__header}>
+          <Icon
+            name={'IcClose'}
+            width={20}
+            height={20}
+            viewBox={'0 0 24 24'}
+            style={{
+              marginRight: '12px',
+            }}
+            onClick={toggleSidebar}
+          />
+          <Link href={'/'} title={'Phase On'} onClick={toggleSidebar}>
+            <Icon
+              name={'IcLogo'}
+              className={styles.icon__logo}
+              width={77}
+              height={22}
+              viewBox={'0 0 112 32'}
+            />
+            <h1 className={'sr-only'}>Phase On</h1>
+          </Link>
+        </div>
+        <div className={clsx(styles.sidebar__content, styles.sidebar__gap)}>
+          <Input
+            showLeftIcon={true}
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            name={'search'}
             className={styles.sidebar__content__searchBar}
           />
+
           <ul className={styles.sidebar__content__menuItems}>
-            <li>프로젝트</li>
-            <li>아티클</li>
+            {menuList.map(({ icon, name, href }) => (
+              <li key={name} onClick={toggleSidebar}>
+                <MenuItem name={name} icon={icon} href={href} />
+              </li>
+            ))}
           </ul>
-          <div className={styles.sidebar__content__logout}>로그아웃</div>
+          <div className={styles.divider} />
+          {isLogin ? (
+            <div
+              className={styles.sidebar__content__logout}
+              onClick={() => {
+                signOut();
+              }}
+            >
+              로그아웃
+            </div>
+          ) : (
+            <div
+              className={styles.sidebar__content__logout}
+              onClick={() => {
+                signIn('email-password-credentials', {
+                  email: '123',
+                  password: '123',
+                });
+              }}
+            >
+              로그인
+            </div>
+          )}
         </div>
       </div>
       {/* 오버레이: 사이드바 열렸을 때 배경을 덮는 부분 */}

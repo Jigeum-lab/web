@@ -9,7 +9,7 @@ const IcSignIn = (props: SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <path
-      fill="#000"
+      fill={props.fill ?? '#000'}
       d="M18.667 2.667H8A1.333 1.333 0 0 0 6.667 4h12v16H8v-6.534H6.667V20A1.333 1.333 0 0 0 8 21.333h10.667A1.333 1.333 0 0 0 20 20V4a1.334 1.334 0 0 0-1.333-1.333Z"
     />
     <path

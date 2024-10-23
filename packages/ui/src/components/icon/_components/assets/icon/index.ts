@@ -199,3 +199,4 @@ export { default as IcViewslash } from './icViewslash';
 export { default as IcViewslashFill } from './icViewslashFill';
 export { default as IcWeb } from './icWeb';
 export { default as IcWrite } from './icWrite';
+export { default as IcSignIn } from './icSignIn';

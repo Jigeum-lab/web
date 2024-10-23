@@ -1,13 +1,22 @@
 import clsx from 'clsx';
+import type React from 'react';
 
 import styles from './index.module.scss';
+import type { IconProps } from '../icon';
 import { Icon } from '../icon';
 
-interface AvatarProps {
+interface AvatarProps extends Omit<IconProps<'svg'>, 'name'> {
   size?: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
+  containerStyles?: React.CSSProperties;
+  containerClassName?: React.HTMLAttributes<HTMLDivElement>['className'];
 }
 
-export const Avatar = ({ size }: AvatarProps) => {
+export const Avatar = ({
+  size,
+  containerStyles,
+  containerClassName,
+  ...rest
+}: AvatarProps) => {
   const getSize = (size: AvatarProps['size']) => {
     switch (size) {
       case 'xs':
@@ -45,8 +54,12 @@ export const Avatar = ({ size }: AvatarProps) => {
   };
 
   return (
-    <div className={clsx(styles.container, getSize(size))}>
+    <div
+      className={clsx(styles.container, getSize(size), containerClassName)}
+      style={containerStyles}
+    >
       <Icon
+        {...rest}
         name="IcPersonFill"
         fill="#ffffff"
         width={getSizeIcon(size)}
