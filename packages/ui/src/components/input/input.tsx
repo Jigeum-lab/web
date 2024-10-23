@@ -1,9 +1,10 @@
 import clsx from 'clsx';
+import type React from 'react';
 import {
-  useRef,
-  useState,
   type ChangeEvent,
   type InputHTMLAttributes,
+  useRef,
+  useState,
 } from 'react';
 
 import styles from './index.module.scss';
@@ -19,6 +20,8 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   showRightIcon?: boolean;
   isInvalid?: boolean;
   buttonProps?: ButtonProps;
+  containerStyles?: React.CSSProperties;
+  containerClassName?: React.HTMLAttributes<HTMLDivElement>['className'];
 }
 
 export const Input = ({
@@ -30,6 +33,9 @@ export const Input = ({
   disabled,
   placeholder,
   buttonProps,
+  containerStyles,
+  containerClassName,
+  className,
   ...args
 }: InputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -50,14 +56,24 @@ export const Input = ({
         styles.inputContainer,
         isInvalid && styles.invalid,
         isFocus && styles.focus,
-        disabled && styles.disabled
+        disabled && styles.disabled,
+        containerClassName
       )}
+      style={containerStyles}
       onClick={handleClick}
       onBlur={() => setIsFocus(false)}
     >
-      {showLeftIcon && <Icon name="IcSearch" width={20} height={20} />}
+      {showLeftIcon && (
+        <Icon
+          name="IcSearch"
+          width={20}
+          height={20}
+          viewBox={'0 0  24 24'}
+          className={styles.icon}
+        />
+      )}
       <input
-        className={clsx(styles.input, disabled && styles.disabled)}
+        className={clsx(styles.input, disabled && styles.disabled, className)}
         value={value}
         onChange={onChange}
         ref={inputRef}

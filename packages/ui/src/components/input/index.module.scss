@@ -3,9 +3,13 @@
   align-items: center;
   gap: 6px;
   width: 400px;
+  @include mobile {
+    width: auto;
+  }
+
   height: 44px;
   padding: 10px 16px;
-  border: 1px solid get-color('line/normal/normal');
+  border: 1px solid get-color('line_normal_normal');
   border-radius: get-radius('radius/4');
   cursor: text;
 
@@ -19,6 +23,12 @@
 
   &.disabled {
     background-color: get-color('interaction_disable');
+  }
+}
+
+.icon {
+  & > path {
+    fill: get-color('labels_neutral')
   }
 }
 

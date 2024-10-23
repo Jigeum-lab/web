@@ -1,5 +1,5 @@
 'use client';
-import { Avatar, Button, Icon } from '@repo/ui';
+import { Avatar, Button, Icon, Input } from '@repo/ui';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -15,8 +15,9 @@ import { useClientSession } from '@/utils/session/useClientSession';
 
 const MobileView = () => {
   const { session } = useClientSession();
-  const router = useRouter();
   const isLogin = session !== null;
+  const router = useRouter();
+  const [search, setSearch] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   useBlockScrolling(isOpen);
 
@@ -95,11 +96,14 @@ const MobileView = () => {
       <Mobile />
       <div className={clsx(styles.sidebar, isOpen && styles.sidebar__open)}>
         <div className={styles.sidebar__content}>
-          <input
-            type="text"
-            placeholder="Search"
+          <Input
+            showLeftIcon={true}
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            name={'search'}
             className={styles.sidebar__content__searchBar}
           />
+
           <ul className={styles.sidebar__content__menuItems}>
             {menuList.map(({ icon, name, href }) => (
               <li key={name} onClick={toggleSidebar}>
@@ -107,6 +111,7 @@ const MobileView = () => {
               </li>
             ))}
           </ul>
+          <div className={styles.divider} />
           {isLogin ? (
             <div
               className={styles.sidebar__content__logout}
