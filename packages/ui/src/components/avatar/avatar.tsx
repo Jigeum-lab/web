@@ -1,13 +1,14 @@
 import clsx from 'clsx';
 
 import styles from './index.module.scss';
+import type { IconProps } from '../icon';
 import { Icon } from '../icon';
 
-interface AvatarProps {
+interface AvatarProps extends Omit<IconProps<'svg'>, 'name'> {
   size?: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
 }
 
-export const Avatar = ({ size }: AvatarProps) => {
+export const Avatar = ({ size, ...rest }: AvatarProps) => {
   const getSize = (size: AvatarProps['size']) => {
     switch (size) {
       case 'xs':
@@ -47,6 +48,7 @@ export const Avatar = ({ size }: AvatarProps) => {
   return (
     <div className={clsx(styles.container, getSize(size))}>
       <Icon
+        {...rest}
         name="IcPersonFill"
         fill="#ffffff"
         width={getSizeIcon(size)}

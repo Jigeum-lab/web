@@ -1,17 +1,24 @@
 'use client';
-import { Button, Icon } from '@repo/ui';
+import { Avatar, Button, Icon } from '@repo/ui';
 import clsx from 'clsx';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { signIn, signOut } from 'next-auth/react';
 import { useState } from 'react';
 
 import styles from './index.module.scss';
 
+import { MenuItem } from '@/components/basic/Header/_components';
+import { menuList } from '@/components/basic/Header/data';
+import { useBlockScrolling } from '@/hooks/useBlockScrolling';
 import { useClientSession } from '@/utils/session/useClientSession';
 
 const MobileView = () => {
+  const { session } = useClientSession();
+  const router = useRouter();
+  const isLogin = session !== null;
   const [isOpen, setIsOpen] = useState(false);
-  const { status } = useClientSession();
+  useBlockScrolling(isOpen);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -53,20 +60,19 @@ const MobileView = () => {
           >
             등록하기
           </Button>
-          {status === 'authenticated' ? (
-            <Icon
-              name={'IcShareIos'}
-              width={20}
-              height={20}
-              viewBox={'0 0 24 24'}
-              className={styles.icon}
-              onClick={() => {
-                signOut();
-              }}
-            />
+          {isLogin ? (
+            <>
+              <Icon name={'IcBell'} className={styles.icon} />
+              <Avatar
+                size={'s'}
+                onClick={() => {
+                  router.push('/mypage');
+                }}
+              />
+            </>
           ) : (
             <Icon
-              name={'IcShareIos'}
+              name={'IcSignIn'}
               width={20}
               height={20}
               viewBox={'0 0 24 24'}
@@ -95,10 +101,34 @@ const MobileView = () => {
             className={styles.sidebar__content__searchBar}
           />
           <ul className={styles.sidebar__content__menuItems}>
-            <li>프로젝트</li>
-            <li>아티클</li>
+            {menuList.map(({ icon, name, href }) => (
+              <li key={name} onClick={toggleSidebar}>
+                <MenuItem name={name} icon={icon} href={href} />
+              </li>
+            ))}
           </ul>
-          <div className={styles.sidebar__content__logout}>로그아웃</div>
+          {isLogin ? (
+            <div
+              className={styles.sidebar__content__logout}
+              onClick={() => {
+                signOut();
+              }}
+            >
+              로그아웃
+            </div>
+          ) : (
+            <div
+              className={styles.sidebar__content__logout}
+              onClick={() => {
+                signIn('email-password-credentials', {
+                  email: '123',
+                  password: '123',
+                });
+              }}
+            >
+              로그인
+            </div>
+          )}
         </div>
       </div>
       {/* 오버레이: 사이드바 열렸을 때 배경을 덮는 부분 */}
